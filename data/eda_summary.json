@@ -1,0 +1,31 @@
+{
+  "raw_rows": 882,
+  "clean_rows": 861,
+  "removed_rows": 21,
+  "raw_exact_duplicates": 12,
+  "raw_missing_service": 4,
+  "raw_invalid_levels": 3,
+  "raw_invalid_timestamps": 2,
+  "traces": 180,
+  "services": {
+    "api-gateway": 357,
+    "order-service": 238,
+    "user-service": 118,
+    "auth-service": 88,
+    "payment-service": 60
+  },
+  "levels": {
+    "INFO": 444,
+    "ERROR": 328,
+    "WARN": 89
+  },
+  "scenario_counts": {
+    "db_unavailable": 30,
+    "auth_expired": 30,
+    "payment_timeout": 30,
+    "pool_exhausted": 30,
+    "dependency_unavailable": 30,
+    "normal": 30
+  },
+  "traces_with_errors": 120
+}

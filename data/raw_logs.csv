@@ -1,0 +1,883 @@
+timestamp,service,level,trace_id,span_id,parent_span_id,event,message,duration_ms
+2026-11-10T10:56:00.018000+00:00,order-service,INFO,trace-0174,trace-0174-s1,trace-0174-s0,create_order,Creating order,18
+2026-11-10T09:46:00.020000+00:00,user-service,INFO,trace-0069,trace-0069-s1,trace-0069-s0,get_users,Querying user database,20
+2026-11-10T09:53:20.025000+00:00,order-service,INFO,trace-0080,trace-0080-s1,trace-0080-s0,checkout,Initiating payment,25
+2026-11-10T09:13:23.080000+00:00,api-gateway,ERROR,trace-0020,trace-0020-s5,trace-0020-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:24:00.230000+00:00,order-service,ERROR,trace-0036,trace-0036-s3,trace-0036-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:53:20.010000+00:00,api-gateway,INFO,trace-0170,trace-0170-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:54:01.070000+00:00,api-gateway,ERROR,trace-0171,trace-0171-s4,trace-0171-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:16:00.018000+00:00,order-service,INFO,trace-0114,trace-0114-s1,trace-0114-s0,create_order,Creating order,18
+2026-11-10T09:36:00.245000+00:00,api-gateway,ERROR,trace-0054,trace-0054-s4,trace-0054-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:46:40.095000+00:00,api-gateway,ERROR,trace-0070,trace-0070-s4,trace-0070-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:57:20.025000+00:00,order-service,INFO,trace-0176,trace-0176-s1,trace-0176-s0,checkout,Initiating payment,25
+2026-11-10T10:33:23.080000+00:00,api-gateway,ERROR,trace-0140,trace-0140-s5,trace-0140-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:41:20.034000+00:00,payment-service,INFO,trace-0152,trace-0152-s2,trace-0152-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:30:00.045000+00:00,user-service,WARN,trace-0135,trace-0135-s2,trace-0135-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:01:23.080000+00:00,api-gateway,ERROR,trace-0092,trace-0092-s5,trace-0092-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:04:40.019000+00:00,auth-service,WARN,trace-0097,trace-0097-s2,trace-0097-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:26:00.045000+00:00,user-service,WARN,trace-0129,trace-0129-s2,trace-0129-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:39:20.016000+00:00,auth-service,INFO,trace-0059,trace-0059-s1,trace-0059-s0,token_valid,Access token validated,16
+2026-11-10T10:10:40.025000+00:00,order-service,INFO,trace-0106,trace-0106-s1,trace-0106-s0,load_order,Loading order with user profile,25
+2026-11-10T09:20:40.019000+00:00,auth-service,WARN,trace-0031,trace-0031-s2,trace-0031-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:58:40.011000+00:00,,INFO,trace-0088,trace-0088-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:27:20.016000+00:00,auth-service,INFO,trace-0131,trace-0131-s1,trace-0131-s0,token_valid,Access token validated,16
+2026-11-10T10:58:01.045000+00:00,user-service,ERROR,trace-0177,trace-0177-s3,trace-0177-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:58:40.095000+00:00,api-gateway,ERROR,trace-0088,trace-0088-s4,trace-0088-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:42:00.020000+00:00,user-service,INFO,trace-0063,trace-0063-s1,trace-0063-s0,get_users,Querying user database,20
+2026-11-10T10:08:40.014000+00:00,auth-service,INFO,trace-0103,trace-0103-s1,trace-0103-s0,validate_token,Validating access token,14
+2026-11-10T09:40:40.019000+00:00,auth-service,WARN,trace-0061,trace-0061-s2,trace-0061-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:20:40.014000+00:00,auth-service,INFO,trace-0121,trace-0121-s1,trace-0121-s0,validate_token,Validating access token,14
+2026-11-10T10:46:40.025000+00:00,order-service,INFO,trace-0160,trace-0160-s1,trace-0160-s0,load_order,Loading order with user profile,25
+2026-11-10T10:20:40.008000+00:00,api-gateway,INFO,trace-0121,trace-0121-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:40:40.014000+00:00,auth-service,NOT_A_LEVEL,trace-0061,trace-0061-s1,trace-0061-s0,validate_token,Validating access token,14
+2026-11-10T10:45:20.034000+00:00,payment-service,INFO,trace-0158,trace-0158-s2,trace-0158-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:33:23.040000+00:00,payment-service,ERROR,trace-0140,trace-0140-s3,trace-0140-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:58:00.009000+00:00,api-gateway,INFO,trace-0177,trace-0177-s0,,request_received,GET /users accepted,9
+2026-11-10T09:35:20.042000+00:00,order-service,INFO,trace-0053,trace-0053-s2,trace-0053-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:36:00.245000+00:00,api-gateway,ERROR,trace-0144,trace-0144-s4,trace-0144-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:52:40.027000+00:00,api-gateway,WARN,trace-0079,trace-0079-s3,trace-0079-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:59:20.016000+00:00,auth-service,INFO,trace-0179,trace-0179-s1,trace-0179-s0,token_valid,Access token validated,16
+2026-11-10T09:12:00.012000+00:00,api-gateway,INFO,trace-0018,trace-0018-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:58:40.025000+00:00,order-service,INFO,trace-0088,trace-0088-s1,trace-0088-s0,load_order,Loading order with user profile,25
+invalid-timestamp,auth-service,INFO,trace-0029,trace-0029-s1,trace-0029-s0,token_valid,Access token validated,16
+2026-11-10T09:29:23.080000+00:00,api-gateway,ERROR,trace-0044,trace-0044-s5,trace-0044-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:30:40.065000+00:00,user-service,ERROR,trace-0136,trace-0136-s2,trace-0136-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:13:20.025000+00:00,order-service,INFO,trace-0020,trace-0020-s1,trace-0020-s0,checkout,Initiating payment,25
+2026-11-10T09:08:40.014000+00:00,auth-service,INFO,trace-0013,trace-0013-s1,trace-0013-s0,validate_token,Validating access token,14
+2026-11-10T09:56:00.220000+00:00,order-service,ERROR,trace-0084,trace-0084-s2,trace-0084-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:00:40.027000+00:00,api-gateway,WARN,trace-0091,trace-0091-s3,trace-0091-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:36:40.019000+00:00,auth-service,WARN,trace-0145,trace-0145-s2,trace-0145-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:53:23.040000+00:00,payment-service,ERROR,trace-0170,trace-0170-s3,trace-0170-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:18:40.025000+00:00,order-service,INFO,trace-0028,trace-0028-s1,trace-0028-s0,load_order,Loading order with user profile,25
+2026-11-10T09:02:00.009000+00:00,api-gateway,INFO,trace-0003,trace-0003-s0,,request_received,GET /users accepted,9
+2026-11-10T10:04:00.018000+00:00,order-service,INFO,trace-0096,trace-0096-s1,trace-0096-s0,create_order,Creating order,18
+2026-11-10T09:50:01.045000+00:00,user-service,ERROR,trace-0075,trace-0075-s3,trace-0075-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:10:40.079000+00:00,order-service,ERROR,trace-0106,trace-0106-s3,trace-0106-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:51:20.042000+00:00,order-service,INFO,trace-0167,trace-0167-s2,trace-0167-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:20:00.012000+00:00,api-gateway,INFO,trace-0120,trace-0120-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:30:01.045000+00:00,user-service,ERROR,trace-0135,trace-0135-s3,trace-0135-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:24:00.220000+00:00,order-service,ERROR,trace-0036,trace-0036-s2,trace-0036-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:48:00.230000+00:00,order-service,ERROR,trace-0072,trace-0072-s3,trace-0072-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:19:20.016000+00:00,auth-service,INFO,trace-0119,trace-0119-s1,trace-0119-s0,token_valid,Access token validated,16
+2026-11-10T09:59:20.016000+00:00,auth-service,INFO,trace-0089,trace-0089-s1,trace-0089-s0,token_valid,Access token validated,16
+2026-11-10T10:51:20.007000+00:00,api-gateway,INFO,trace-0167,trace-0167-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:56:00.245000+00:00,api-gateway,ERROR,trace-0174,trace-0174-s4,trace-0174-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:42:00.045000+00:00,user-service,WARN,trace-0153,trace-0153-s2,trace-0153-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:04:00.230000+00:00,order-service,ERROR,trace-0006,trace-0006-s3,trace-0006-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:37:20.010000+00:00,api-gateway,INFO,trace-0056,trace-0056-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:21:20.010000+00:00,api-gateway,INFO,trace-0032,trace-0032-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:42:00.045000+00:00,user-service,WARN,trace-0063,trace-0063-s2,trace-0063-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:44:40.014000+00:00,auth-service,INFO,trace-0157,trace-0157-s1,trace-0157-s0,validate_token,Validating access token,14
+2026-11-10T10:53:23.080000+00:00,api-gateway,ERROR,trace-0170,trace-0170-s5,trace-0170-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:03:20.042000+00:00,order-service,INFO,trace-0005,trace-0005-s2,trace-0005-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:10:40.065000+00:00,user-service,ERROR,trace-0016,trace-0016-s2,trace-0016-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:39:20.007000+00:00,api-gateway,INFO,trace-0149,trace-0149-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:08:40.019000+00:00,auth-service,WARN,trace-0013,trace-0013-s2,trace-0013-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:58:01.070000+00:00,api-gateway,ERROR,trace-0177,trace-0177-s4,trace-0177-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:06:00.045000+00:00,user-service,WARN,trace-0099,trace-0099-s2,trace-0099-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:15:20.042000+00:00,order-service,INFO,trace-0023,trace-0023-s2,trace-0023-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:00:40.008000+00:00,api-gateway,INFO,trace-0091,trace-0091-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:36:40.014000+00:00,auth-service,INFO,trace-0055,trace-0055-s1,trace-0055-s0,validate_token,Validating access token,14
+2026-11-10T09:49:20.034000+00:00,payment-service,INFO,trace-0074,trace-0074-s2,trace-0074-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:06:00.020000+00:00,,INFO,trace-0099,trace-0099-s1,trace-0099-s0,get_users,Querying user database,20
+2026-11-10T09:36:40.019000+00:00,auth-service,WARN,trace-0055,trace-0055-s2,trace-0055-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:47:20.007000+00:00,api-gateway,INFO,trace-0071,trace-0071-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:45:20.010000+00:00,api-gateway,INFO,trace-0068,trace-0068-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:46:40.079000+00:00,order-service,ERROR,trace-0160,trace-0160-s3,trace-0160-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:21:20.025000+00:00,order-service,INFO,trace-0122,trace-0122-s1,trace-0122-s0,checkout,Initiating payment,25
+2026-11-10T09:53:23.080000+00:00,api-gateway,ERROR,trace-0080,trace-0080-s5,trace-0080-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:52:40.019000+00:00,auth-service,WARN,trace-0169,trace-0169-s2,trace-0169-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:16:00.245000+00:00,api-gateway,ERROR,trace-0024,trace-0024-s4,trace-0024-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:54:40.095000+00:00,api-gateway,ERROR,trace-0172,trace-0172-s4,trace-0172-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:34:40.011000+00:00,api-gateway,NOT_A_LEVEL,trace-0142,trace-0142-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:52:00.230000+00:00,order-service,ERROR,trace-0078,trace-0078-s3,trace-0078-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:14:40.065000+00:00,user-service,ERROR,trace-0112,trace-0112-s2,trace-0112-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:40:00.012000+00:00,api-gateway,INFO,trace-0150,trace-0150-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:58:40.065000+00:00,user-service,ERROR,trace-0088,trace-0088-s2,trace-0088-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:09:23.080000+00:00,api-gateway,ERROR,trace-0014,trace-0014-s5,trace-0014-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:35:20.016000+00:00,auth-service,INFO,trace-0053,trace-0053-s1,trace-0053-s0,token_valid,Access token validated,16
+2026-11-10T10:22:00.045000+00:00,user-service,WARN,trace-0123,trace-0123-s2,trace-0123-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:20:40.008000+00:00,api-gateway,INFO,trace-0031,trace-0031-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:41:23.040000+00:00,payment-service,ERROR,trace-0062,trace-0062-s3,trace-0062-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+invalid-timestamp,user-service,INFO,trace-0111,trace-0111-s1,trace-0111-s0,get_users,Querying user database,20
+2026-11-10T10:42:40.025000+00:00,order-service,INFO,trace-0154,trace-0154-s1,trace-0154-s0,load_order,Loading order with user profile,25
+2026-11-10T10:30:01.070000+00:00,api-gateway,ERROR,trace-0135,trace-0135-s4,trace-0135-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:00:00.245000+00:00,api-gateway,ERROR,trace-0090,trace-0090-s4,trace-0090-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:15:20.042000+00:00,order-service,INFO,trace-0113,trace-0113-s2,trace-0113-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:01:23.040000+00:00,payment-service,ERROR,trace-0092,trace-0092-s3,trace-0092-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:54:01.070000+00:00,api-gateway,ERROR,trace-0081,trace-0081-s4,trace-0081-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:28:00.012000+00:00,api-gateway,INFO,trace-0132,trace-0132-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:05:20.010000+00:00,api-gateway,INFO,trace-0008,trace-0008-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:54:40.079000+00:00,order-service,ERROR,trace-0172,trace-0172-s3,trace-0172-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:22:00.045000+00:00,user-service,WARN,trace-0033,trace-0033-s2,trace-0033-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:24:40.027000+00:00,api-gateway,WARN,trace-0127,trace-0127-s3,trace-0127-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:37:23.080000+00:00,api-gateway,ERROR,trace-0146,trace-0146-s5,trace-0146-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:20:40.014000+00:00,auth-service,INFO,trace-0031,trace-0031-s1,trace-0031-s0,validate_token,Validating access token,14
+2026-11-10T10:50:00.020000+00:00,user-service,INFO,trace-0165,trace-0165-s1,trace-0165-s0,get_users,Querying user database,20
+2026-11-10T09:30:40.025000+00:00,order-service,INFO,trace-0046,trace-0046-s1,trace-0046-s0,load_order,Loading order with user profile,25
+2026-11-10T10:28:40.027000+00:00,api-gateway,WARN,trace-0133,trace-0133-s3,trace-0133-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:32:40.019000+00:00,auth-service,WARN,trace-0049,trace-0049-s2,trace-0049-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:12:00.245000+00:00,api-gateway,ERROR,trace-0018,trace-0018-s4,trace-0018-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:56:40.027000+00:00,api-gateway,WARN,trace-0085,trace-0085-s3,trace-0085-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:46:01.045000+00:00,user-service,ERROR,trace-0069,trace-0069-s3,trace-0069-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:30:40.095000+00:00,api-gateway,ERROR,trace-0046,trace-0046-s4,trace-0046-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:45:23.080000+00:00,api-gateway,ERROR,trace-0158,trace-0158-s5,trace-0158-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:11:20.055000+00:00,api-gateway,INFO,trace-0107,trace-0107-s3,trace-0107-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:03:20.016000+00:00,auth-service,INFO,trace-0095,trace-0095-s1,trace-0095-s0,token_valid,Access token validated,16
+2026-11-10T10:44:40.027000+00:00,api-gateway,WARN,trace-0157,trace-0157-s3,trace-0157-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:00:00.245000+00:00,api-gateway,ERROR,trace-0000,trace-0000-s4,trace-0000-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:45:23.060000+00:00,order-service,ERROR,trace-0068,trace-0068-s4,trace-0068-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:14:01.045000+00:00,user-service,ERROR,trace-0021,trace-0021-s3,trace-0021-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:14:40.079000+00:00,order-service,ERROR,trace-0112,trace-0112-s3,trace-0112-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:20:00.018000+00:00,order-service,INFO,trace-0120,trace-0120-s1,trace-0120-s0,create_order,Creating order,18
+2026-11-10T10:54:40.065000+00:00,user-service,ERROR,trace-0172,trace-0172-s2,trace-0172-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:32:00.012000+00:00,api-gateway,INFO,trace-0138,trace-0138-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:39:20.055000+00:00,api-gateway,INFO,trace-0149,trace-0149-s3,trace-0149-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:40:40.008000+00:00,api-gateway,INFO,trace-0061,trace-0061-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:24:40.008000+00:00,api-gateway,INFO,trace-0127,trace-0127-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:55:20.007000+00:00,api-gateway,INFO,trace-0173,trace-0173-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:42:01.045000+00:00,user-service,ERROR,trace-0153,trace-0153-s3,trace-0153-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:26:40.011000+00:00,api-gateway,INFO,trace-0130,trace-0130-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:33:23.080000+00:00,api-gateway,ERROR,trace-0050,trace-0050-s5,trace-0050-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:44:40.027000+00:00,,WARN,trace-0067,trace-0067-s3,trace-0067-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:49:23.040000+00:00,payment-service,ERROR,trace-0074,trace-0074-s3,trace-0074-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:24:00.245000+00:00,api-gateway,ERROR,trace-0036,trace-0036-s4,trace-0036-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:15:20.007000+00:00,api-gateway,INFO,trace-0113,trace-0113-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:06:00.020000+00:00,user-service,INFO,trace-0009,trace-0009-s1,trace-0009-s0,get_users,Querying user database,20
+2026-11-10T09:54:40.095000+00:00,api-gateway,ERROR,trace-0082,trace-0082-s4,trace-0082-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:36:40.027000+00:00,api-gateway,WARN,trace-0055,trace-0055-s3,trace-0055-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:54:00.009000+00:00,api-gateway,INFO,trace-0171,trace-0171-s0,,request_received,GET /users accepted,9
+2026-11-10T09:22:40.025000+00:00,order-service,INFO,trace-0034,trace-0034-s1,trace-0034-s0,load_order,Loading order with user profile,25
+2026-11-10T09:17:20.034000+00:00,payment-service,INFO,trace-0026,trace-0026-s2,trace-0026-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:05:23.060000+00:00,order-service,NOT_A_LEVEL,trace-0098,trace-0098-s4,trace-0098-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:24:00.220000+00:00,order-service,ERROR,trace-0126,trace-0126-s2,trace-0126-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:54:40.011000+00:00,api-gateway,INFO,trace-0172,trace-0172-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:52:40.014000+00:00,auth-service,INFO,trace-0079,trace-0079-s1,trace-0079-s0,validate_token,Validating access token,14
+2026-11-10T10:24:40.014000+00:00,auth-service,INFO,trace-0127,trace-0127-s1,trace-0127-s0,validate_token,Validating access token,14
+2026-11-10T09:59:20.007000+00:00,api-gateway,INFO,trace-0089,trace-0089-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:50:40.065000+00:00,user-service,ERROR,trace-0166,trace-0166-s2,trace-0166-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:21:20.025000+00:00,order-service,INFO,trace-0032,trace-0032-s1,trace-0032-s0,checkout,Initiating payment,25
+2026-11-10T09:54:00.045000+00:00,user-service,WARN,trace-0081,trace-0081-s2,trace-0081-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:56:40.014000+00:00,auth-service,INFO,trace-0175,trace-0175-s1,trace-0175-s0,validate_token,Validating access token,14
+2026-11-10T10:54:01.045000+00:00,user-service,ERROR,trace-0171,trace-0171-s3,trace-0171-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:22:00.020000+00:00,user-service,INFO,trace-0033,trace-0033-s1,trace-0033-s0,get_users,Querying user database,20
+2026-11-10T10:35:20.042000+00:00,order-service,INFO,trace-0143,trace-0143-s2,trace-0143-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:34:00.045000+00:00,user-service,WARN,trace-0051,trace-0051-s2,trace-0051-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:13:20.010000+00:00,api-gateway,INFO,trace-0110,trace-0110-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:56:00.012000+00:00,api-gateway,INFO,trace-0084,trace-0084-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:29:20.010000+00:00,api-gateway,INFO,trace-0044,trace-0044-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:03:20.016000+00:00,auth-service,INFO,trace-0005,trace-0005-s1,trace-0005-s0,token_valid,Access token validated,16
+2026-11-10T10:42:00.009000+00:00,api-gateway,INFO,trace-0153,trace-0153-s0,,request_received,GET /users accepted,9
+2026-11-10T10:39:20.016000+00:00,auth-service,INFO,trace-0149,trace-0149-s1,trace-0149-s0,token_valid,Access token validated,16
+2026-11-10T10:49:20.010000+00:00,api-gateway,INFO,trace-0164,trace-0164-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:24:40.027000+00:00,api-gateway,WARN,trace-0037,trace-0037-s3,trace-0037-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:01:20.034000+00:00,payment-service,INFO,trace-0092,trace-0092-s2,trace-0092-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:57:23.080000+00:00,api-gateway,ERROR,trace-0086,trace-0086-s5,trace-0086-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:46:00.009000+00:00,api-gateway,INFO,trace-0069,trace-0069-s0,,request_received,GET /users accepted,9
+2026-11-10T10:48:00.230000+00:00,order-service,ERROR,trace-0162,trace-0162-s3,trace-0162-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:38:00.020000+00:00,user-service,INFO,trace-0057,trace-0057-s1,trace-0057-s0,get_users,Querying user database,20
+2026-11-10T10:02:00.020000+00:00,user-service,INFO,trace-0093,trace-0093-s1,trace-0093-s0,get_users,Querying user database,20
+2026-11-10T10:20:00.230000+00:00,order-service,ERROR,trace-0120,trace-0120-s3,trace-0120-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:02:40.011000+00:00,api-gateway,INFO,trace-0004,trace-0004-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:53:23.060000+00:00,order-service,ERROR,trace-0170,trace-0170-s4,trace-0170-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:08:40.027000+00:00,api-gateway,WARN,trace-0013,trace-0013-s3,trace-0013-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:32:00.012000+00:00,api-gateway,INFO,trace-0048,trace-0048-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:32:40.019000+00:00,auth-service,WARN,trace-0139,trace-0139-s2,trace-0139-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:44:00.018000+00:00,order-service,INFO,trace-0066,trace-0066-s1,trace-0066-s0,create_order,Creating order,18
+2026-11-10T09:10:00.009000+00:00,api-gateway,INFO,trace-0015,trace-0015-s0,,request_received,GET /users accepted,9
+2026-11-10T10:54:40.025000+00:00,order-service,INFO,trace-0172,trace-0172-s1,trace-0172-s0,load_order,Loading order with user profile,25
+2026-11-10T09:57:20.025000+00:00,order-service,INFO,trace-0086,trace-0086-s1,trace-0086-s0,checkout,Initiating payment,25
+2026-11-10T10:08:00.012000+00:00,api-gateway,INFO,trace-0102,trace-0102-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:17:20.010000+00:00,api-gateway,INFO,trace-0026,trace-0026-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:42:40.011000+00:00,api-gateway,INFO,trace-0154,trace-0154-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:01:20.025000+00:00,order-service,INFO,trace-0092,trace-0092-s1,trace-0092-s0,checkout,Initiating payment,25
+2026-11-10T09:00:00.230000+00:00,order-service,ERROR,trace-0000,trace-0000-s3,trace-0000-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:06:40.025000+00:00,order-service,INFO,trace-0010,trace-0010-s1,trace-0010-s0,load_order,Loading order with user profile,25
+2026-11-10T09:08:00.012000+00:00,api-gateway,INFO,trace-0012,trace-0012-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:22:01.045000+00:00,user-service,ERROR,trace-0033,trace-0033-s3,trace-0033-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:13:20.010000+00:00,api-gateway,INFO,trace-0020,trace-0020-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:16:00.220000+00:00,order-service,ERROR,trace-0114,trace-0114-s2,trace-0114-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:32:40.014000+00:00,auth-service,INFO,trace-0049,trace-0049-s1,trace-0049-s0,validate_token,Validating access token,14
+2026-11-10T09:04:40.019000+00:00,auth-service,WARN,trace-0007,trace-0007-s2,trace-0007-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:28:00.220000+00:00,,ERROR,trace-0042,trace-0042-s2,trace-0042-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:50:00.045000+00:00,user-service,WARN,trace-0075,trace-0075-s2,trace-0075-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:24:40.008000+00:00,api-gateway,INFO,trace-0037,trace-0037-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:56:00.230000+00:00,order-service,ERROR,trace-0084,trace-0084-s3,trace-0084-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:59:20.055000+00:00,api-gateway,INFO,trace-0179,trace-0179-s3,trace-0179-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:19:20.042000+00:00,order-service,INFO,trace-0029,trace-0029-s2,trace-0029-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:18:40.065000+00:00,user-service,ERROR,trace-0118,trace-0118-s2,trace-0118-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:12:40.019000+00:00,auth-service,WARN,trace-0019,trace-0019-s2,trace-0019-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:44:00.230000+00:00,order-service,ERROR,trace-0066,trace-0066-s3,trace-0066-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:16:40.008000+00:00,api-gateway,INFO,trace-0025,trace-0025-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:00:40.014000+00:00,auth-service,INFO,trace-0001,trace-0001-s1,trace-0001-s0,validate_token,Validating access token,14
+2026-11-10T10:18:01.070000+00:00,api-gateway,ERROR,trace-0117,trace-0117-s4,trace-0117-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:37:20.025000+00:00,order-service,INFO,trace-0146,trace-0146-s1,trace-0146-s0,checkout,Initiating payment,25
+2026-11-10T10:47:20.042000+00:00,order-service,INFO,trace-0161,trace-0161-s2,trace-0161-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:55:20.055000+00:00,api-gateway,INFO,trace-0173,trace-0173-s3,trace-0173-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:23:20.007000+00:00,api-gateway,INFO,trace-0125,trace-0125-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:24:00.245000+00:00,api-gateway,ERROR,trace-0126,trace-0126-s4,trace-0126-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:06:40.095000+00:00,api-gateway,ERROR,trace-0100,trace-0100-s4,trace-0100-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:35:20.007000+00:00,api-gateway,INFO,trace-0143,trace-0143-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:32:00.220000+00:00,order-service,ERROR,trace-0138,trace-0138-s2,trace-0138-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:58:00.020000+00:00,user-service,INFO,trace-0177,trace-0177-s1,trace-0177-s0,get_users,Querying user database,20
+2026-11-10T09:20:00.245000+00:00,api-gateway,ERROR,trace-0030,trace-0030-s4,trace-0030-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:12:00.230000+00:00,order-service,ERROR,trace-0108,trace-0108-s3,trace-0108-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:06:01.045000+00:00,user-service,ERROR,trace-0009,trace-0009-s3,trace-0009-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:23:20.055000+00:00,api-gateway,INFO,trace-0125,trace-0125-s3,trace-0125-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:52:40.019000+00:00,auth-service,WARN,trace-0079,trace-0079-s2,trace-0079-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:06:40.065000+00:00,user-service,ERROR,trace-0010,trace-0010-s2,trace-0010-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:17:23.060000+00:00,order-service,ERROR,trace-0116,trace-0116-s4,trace-0116-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:52:00.245000+00:00,api-gateway,ERROR,trace-0078,trace-0078-s4,trace-0078-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:42:01.070000+00:00,api-gateway,ERROR,trace-0153,trace-0153-s4,trace-0153-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:52:40.008000+00:00,api-gateway,INFO,trace-0169,trace-0169-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:41:20.034000+00:00,payment-service,INFO,trace-0062,trace-0062-s2,trace-0062-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:44:40.019000+00:00,auth-service,WARN,trace-0157,trace-0157-s2,trace-0157-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:38:40.079000+00:00,order-service,ERROR,trace-0058,trace-0058-s3,trace-0058-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:10:40.011000+00:00,api-gateway,INFO,trace-0016,trace-0016-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:46:00.020000+00:00,user-service,INFO,trace-0159,trace-0159-s1,trace-0159-s0,get_users,Querying user database,20
+2026-11-10T10:05:23.080000+00:00,api-gateway,ERROR,trace-0098,trace-0098-s5,trace-0098-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:52:00.018000+00:00,order-service,INFO,trace-0078,trace-0078-s1,trace-0078-s0,create_order,Creating order,18
+2026-11-10T10:34:00.020000+00:00,user-service,INFO,trace-0141,trace-0141-s1,trace-0141-s0,get_users,Querying user database,20
+2026-11-10T10:44:40.008000+00:00,api-gateway,INFO,trace-0157,trace-0157-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:30:40.079000+00:00,order-service,ERROR,trace-0136,trace-0136-s3,trace-0136-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:17:20.034000+00:00,payment-service,INFO,trace-0116,trace-0116-s2,trace-0116-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:32:40.008000+00:00,api-gateway,INFO,trace-0049,trace-0049-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:37:23.040000+00:00,payment-service,ERROR,trace-0146,trace-0146-s3,trace-0146-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:32:00.245000+00:00,api-gateway,ERROR,trace-0048,trace-0048-s4,trace-0048-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:14:40.079000+00:00,order-service,ERROR,trace-0022,trace-0022-s3,trace-0022-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:40:00.018000+00:00,order-service,INFO,trace-0060,trace-0060-s1,trace-0060-s0,create_order,Creating order,18
+2026-11-10T09:33:23.060000+00:00,order-service,ERROR,trace-0050,trace-0050-s4,trace-0050-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:45:23.060000+00:00,order-service,ERROR,trace-0158,trace-0158-s4,trace-0158-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:50:40.095000+00:00,api-gateway,ERROR,trace-0166,trace-0166-s4,trace-0166-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:43:20.042000+00:00,order-service,INFO,trace-0065,trace-0065-s2,trace-0065-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:36:00.018000+00:00,order-service,INFO,trace-0054,trace-0054-s1,trace-0054-s0,create_order,Creating order,18
+2026-11-10T09:06:40.011000+00:00,api-gateway,INFO,trace-0010,trace-0010-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:55:20.042000+00:00,order-service,INFO,trace-0173,trace-0173-s2,trace-0173-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:48:40.019000+00:00,auth-service,WARN,trace-0073,trace-0073-s2,trace-0073-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:09:23.060000+00:00,order-service,ERROR,trace-0104,trace-0104-s4,trace-0104-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:52:00.018000+00:00,order-service,INFO,trace-0168,trace-0168-s1,trace-0168-s0,create_order,Creating order,18
+2026-11-10T09:18:00.045000+00:00,user-service,WARN,trace-0027,trace-0027-s2,trace-0027-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:15:20.055000+00:00,api-gateway,INFO,trace-0023,trace-0023-s3,trace-0023-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:10:40.025000+00:00,order-service,INFO,trace-0016,trace-0016-s1,trace-0016-s0,load_order,Loading order with user profile,25
+2026-11-10T09:02:00.045000+00:00,user-service,WARN,trace-0003,trace-0003-s2,trace-0003-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:46:40.011000+00:00,api-gateway,INFO,trace-0160,trace-0160-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:43:20.016000+00:00,auth-service,INFO,trace-0065,trace-0065-s1,trace-0065-s0,token_valid,Access token validated,16
+2026-11-10T10:43:20.042000+00:00,order-service,INFO,trace-0155,trace-0155-s2,trace-0155-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:39:20.007000+00:00,api-gateway,INFO,trace-0059,trace-0059-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:14:00.009000+00:00,api-gateway,INFO,trace-0021,trace-0021-s0,,request_received,GET /users accepted,9
+2026-11-10T09:30:00.020000+00:00,user-service,INFO,trace-0045,trace-0045-s1,trace-0045-s0,get_users,Querying user database,20
+2026-11-10T10:45:23.040000+00:00,payment-service,ERROR,trace-0158,trace-0158-s3,trace-0158-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:01:23.080000+00:00,api-gateway,ERROR,trace-0002,trace-0002-s5,trace-0002-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:18:01.045000+00:00,user-service,ERROR,trace-0117,trace-0117-s3,trace-0117-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:58:40.079000+00:00,order-service,ERROR,trace-0178,trace-0178-s3,trace-0178-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:16:00.018000+00:00,order-service,INFO,trace-0024,trace-0024-s1,trace-0024-s0,create_order,Creating order,18
+2026-11-10T10:00:00.230000+00:00,order-service,ERROR,trace-0090,trace-0090-s3,trace-0090-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:43:20.007000+00:00,api-gateway,INFO,trace-0065,trace-0065-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:49:23.060000+00:00,order-service,ERROR,trace-0164,trace-0164-s4,trace-0164-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:02:40.025000+00:00,order-service,INFO,trace-0004,trace-0004-s1,trace-0004-s0,load_order,Loading order with user profile,25
+2026-11-10T09:38:40.011000+00:00,api-gateway,INFO,trace-0058,trace-0058-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:16:00.220000+00:00,order-service,ERROR,trace-0024,trace-0024-s2,trace-0024-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:51:20.055000+00:00,api-gateway,INFO,trace-0077,trace-0077-s3,trace-0077-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:14:40.025000+00:00,order-service,INFO,trace-0112,trace-0112-s1,trace-0112-s0,load_order,Loading order with user profile,25
+2026-11-10T09:37:20.034000+00:00,payment-service,INFO,trace-0056,trace-0056-s2,trace-0056-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:49:23.080000+00:00,api-gateway,ERROR,trace-0164,trace-0164-s5,trace-0164-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:48:00.220000+00:00,order-service,ERROR,trace-0072,trace-0072-s2,trace-0072-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:08:40.008000+00:00,api-gateway,INFO,trace-0013,trace-0013-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:22:01.070000+00:00,api-gateway,ERROR,trace-0123,trace-0123-s4,trace-0123-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:56:00.018000+00:00,order-service,INFO,trace-0084,trace-0084-s1,trace-0084-s0,create_order,Creating order,18
+2026-11-10T10:34:40.065000+00:00,user-service,ERROR,trace-0142,trace-0142-s2,trace-0142-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:09:23.080000+00:00,api-gateway,ERROR,trace-0104,trace-0104-s5,trace-0104-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:05:20.025000+00:00,order-service,INFO,trace-0098,trace-0098-s1,trace-0098-s0,checkout,Initiating payment,25
+2026-11-10T10:47:20.007000+00:00,api-gateway,INFO,trace-0161,trace-0161-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:51:20.016000+00:00,auth-service,INFO,trace-0077,trace-0077-s1,trace-0077-s0,token_valid,Access token validated,16
+2026-11-10T09:17:23.040000+00:00,payment-service,ERROR,trace-0026,trace-0026-s3,trace-0026-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:21:23.080000+00:00,api-gateway,ERROR,trace-0122,trace-0122-s5,trace-0122-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:45:20.034000+00:00,payment-service,INFO,trace-0068,trace-0068-s2,trace-0068-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:08:00.220000+00:00,order-service,ERROR,trace-0102,trace-0102-s2,trace-0102-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:14:00.020000+00:00,user-service,INFO,trace-0021,trace-0021-s1,trace-0021-s0,get_users,Querying user database,20
+2026-11-10T09:32:00.230000+00:00,order-service,ERROR,trace-0048,trace-0048-s3,trace-0048-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:16:40.019000+00:00,auth-service,WARN,trace-0025,trace-0025-s2,trace-0025-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:13:20.025000+00:00,order-service,INFO,trace-0110,trace-0110-s1,trace-0110-s0,checkout,Initiating payment,25
+2026-11-10T09:26:00.020000+00:00,user-service,INFO,trace-0039,trace-0039-s1,trace-0039-s0,get_users,Querying user database,20
+2026-11-10T10:41:23.060000+00:00,order-service,ERROR,trace-0152,trace-0152-s4,trace-0152-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:53:23.060000+00:00,order-service,ERROR,trace-0080,trace-0080-s4,trace-0080-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:29:23.060000+00:00,order-service,ERROR,trace-0044,trace-0044-s4,trace-0044-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:35:20.016000+00:00,auth-service,INFO,trace-0143,trace-0143-s1,trace-0143-s0,token_valid,Access token validated,16
+2026-11-10T09:22:40.065000+00:00,user-service,ERROR,trace-0034,trace-0034-s2,trace-0034-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:40:00.018000+00:00,order-service,INFO,trace-0150,trace-0150-s1,trace-0150-s0,create_order,Creating order,18
+2026-11-10T09:18:00.020000+00:00,user-service,INFO,trace-0027,trace-0027-s1,trace-0027-s0,get_users,Querying user database,20
+2026-11-10T10:58:40.095000+00:00,api-gateway,ERROR,trace-0178,trace-0178-s4,trace-0178-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:11:20.055000+00:00,api-gateway,INFO,trace-0017,trace-0017-s3,trace-0017-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:06:40.065000+00:00,user-service,ERROR,trace-0100,trace-0100-s2,trace-0100-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:05:23.060000+00:00,order-service,ERROR,trace-0008,trace-0008-s4,trace-0008-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:27:20.042000+00:00,order-service,INFO,trace-0041,trace-0041-s2,trace-0041-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:57:23.060000+00:00,order-service,ERROR,trace-0086,trace-0086-s4,trace-0086-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:17:23.080000+00:00,api-gateway,ERROR,trace-0026,trace-0026-s5,trace-0026-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:28:00.245000+00:00,api-gateway,ERROR,trace-0132,trace-0132-s4,trace-0132-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:57:23.080000+00:00,api-gateway,ERROR,trace-0176,trace-0176-s5,trace-0176-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:30:40.011000+00:00,api-gateway,INFO,trace-0046,trace-0046-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:40:40.008000+00:00,api-gateway,INFO,trace-0151,trace-0151-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:28:00.230000+00:00,order-service,ERROR,trace-0042,trace-0042-s3,trace-0042-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:12:00.230000+00:00,order-service,ERROR,trace-0018,trace-0018-s3,trace-0018-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:12:40.008000+00:00,api-gateway,INFO,trace-0109,trace-0109-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:23:20.042000+00:00,order-service,INFO,trace-0035,trace-0035-s2,trace-0035-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:14:01.045000+00:00,user-service,ERROR,trace-0111,trace-0111-s3,trace-0111-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:04:40.008000+00:00,api-gateway,INFO,trace-0007,trace-0007-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:10:40.095000+00:00,api-gateway,ERROR,trace-0106,trace-0106-s4,trace-0106-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:24:40.014000+00:00,auth-service,INFO,trace-0037,trace-0037-s1,trace-0037-s0,validate_token,Validating access token,14
+2026-11-10T10:34:40.095000+00:00,api-gateway,ERROR,trace-0142,trace-0142-s4,trace-0142-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:01:23.060000+00:00,order-service,ERROR,trace-0002,trace-0002-s4,trace-0002-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:10:40.079000+00:00,order-service,ERROR,trace-0016,trace-0016-s3,trace-0016-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:07:20.055000+00:00,api-gateway,INFO,trace-0011,trace-0011-s3,trace-0011-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:40:00.220000+00:00,order-service,ERROR,trace-0150,trace-0150-s2,trace-0150-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:34:40.025000+00:00,order-service,INFO,trace-0142,trace-0142-s1,trace-0142-s0,load_order,Loading order with user profile,25
+2026-11-10T10:56:40.019000+00:00,auth-service,WARN,trace-0175,trace-0175-s2,trace-0175-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:00:00.018000+00:00,order-service,INFO,trace-0090,trace-0090-s1,trace-0090-s0,create_order,Creating order,18
+2026-11-10T09:21:23.060000+00:00,order-service,ERROR,trace-0032,trace-0032-s4,trace-0032-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:12:00.245000+00:00,api-gateway,ERROR,trace-0108,trace-0108-s4,trace-0108-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:16:00.230000+00:00,order-service,ERROR,trace-0114,trace-0114-s3,trace-0114-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:17:23.080000+00:00,api-gateway,ERROR,trace-0116,trace-0116-s5,trace-0116-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:18:40.079000+00:00,order-service,ERROR,trace-0028,trace-0028-s3,trace-0028-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:57:23.040000+00:00,payment-service,ERROR,trace-0086,trace-0086-s3,trace-0086-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:26:40.011000+00:00,api-gateway,INFO,trace-0040,trace-0040-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:22:01.070000+00:00,api-gateway,ERROR,trace-0033,trace-0033-s4,trace-0033-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:11:20.016000+00:00,auth-service,INFO,trace-0107,trace-0107-s1,trace-0107-s0,token_valid,Access token validated,16
+2026-11-10T10:32:00.245000+00:00,api-gateway,ERROR,trace-0138,trace-0138-s4,trace-0138-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:08:00.018000+00:00,order-service,INFO,trace-0102,trace-0102-s1,trace-0102-s0,create_order,Creating order,18
+2026-11-10T09:46:40.079000+00:00,order-service,ERROR,trace-0070,trace-0070-s3,trace-0070-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:40:40.027000+00:00,api-gateway,WARN,trace-0061,trace-0061-s3,trace-0061-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:11:20.016000+00:00,auth-service,INFO,trace-0017,trace-0017-s1,trace-0017-s0,token_valid,Access token validated,16
+2026-11-10T10:48:40.014000+00:00,auth-service,INFO,trace-0163,trace-0163-s1,trace-0163-s0,validate_token,Validating access token,14
+2026-11-10T10:45:20.025000+00:00,order-service,INFO,trace-0158,trace-0158-s1,trace-0158-s0,checkout,Initiating payment,25
+2026-11-10T09:14:40.095000+00:00,api-gateway,ERROR,trace-0022,trace-0022-s4,trace-0022-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:33:20.034000+00:00,payment-service,INFO,trace-0140,trace-0140-s2,trace-0140-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:10:00.045000+00:00,user-service,WARN,trace-0105,trace-0105-s2,trace-0105-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:38:40.025000+00:00,order-service,INFO,trace-0058,trace-0058-s1,trace-0058-s0,load_order,Loading order with user profile,25
+2026-11-10T10:27:20.055000+00:00,api-gateway,INFO,trace-0131,trace-0131-s3,trace-0131-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:55:20.042000+00:00,order-service,INFO,trace-0083,trace-0083-s2,trace-0083-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:18:01.045000+00:00,user-service,ERROR,trace-0027,trace-0027-s3,trace-0027-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:43:20.055000+00:00,api-gateway,INFO,trace-0065,trace-0065-s3,trace-0065-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:01:20.010000+00:00,api-gateway,INFO,trace-0002,trace-0002-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:17:20.025000+00:00,order-service,INFO,trace-0116,trace-0116-s1,trace-0116-s0,checkout,Initiating payment,25
+2026-11-10T09:28:40.008000+00:00,api-gateway,INFO,trace-0043,trace-0043-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:01:20.025000+00:00,order-service,INFO,trace-0002,trace-0002-s1,trace-0002-s0,checkout,Initiating payment,25
+2026-11-10T10:46:01.070000+00:00,api-gateway,ERROR,trace-0159,trace-0159-s4,trace-0159-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:21:20.010000+00:00,api-gateway,INFO,trace-0122,trace-0122-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:31:20.055000+00:00,api-gateway,INFO,trace-0047,trace-0047-s3,trace-0047-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:00:00.220000+00:00,order-service,ERROR,trace-0000,trace-0000-s2,trace-0000-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:41:23.080000+00:00,api-gateway,ERROR,trace-0062,trace-0062-s5,trace-0062-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:18:40.011000+00:00,api-gateway,INFO,trace-0028,trace-0028-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:46:00.009000+00:00,api-gateway,INFO,trace-0159,trace-0159-s0,,request_received,GET /users accepted,9
+2026-11-10T10:54:00.045000+00:00,user-service,WARN,trace-0171,trace-0171-s2,trace-0171-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:52:00.220000+00:00,order-service,ERROR,trace-0078,trace-0078-s2,trace-0078-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:11:20.007000+00:00,api-gateway,INFO,trace-0017,trace-0017-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:54:40.025000+00:00,order-service,INFO,trace-0082,trace-0082-s1,trace-0082-s0,load_order,Loading order with user profile,25
+2026-11-10T09:02:01.045000+00:00,user-service,ERROR,trace-0003,trace-0003-s3,trace-0003-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:07:20.016000+00:00,auth-service,INFO,trace-0011,trace-0011-s1,trace-0011-s0,token_valid,Access token validated,16
+2026-11-10T10:52:40.014000+00:00,auth-service,INFO,trace-0169,trace-0169-s1,trace-0169-s0,validate_token,Validating access token,14
+2026-11-10T09:42:01.070000+00:00,api-gateway,ERROR,trace-0063,trace-0063-s4,trace-0063-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:02:01.070000+00:00,api-gateway,ERROR,trace-0093,trace-0093-s4,trace-0093-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:37:20.034000+00:00,payment-service,INFO,trace-0146,trace-0146-s2,trace-0146-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:30:40.079000+00:00,order-service,ERROR,trace-0046,trace-0046-s3,trace-0046-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:20:00.012000+00:00,api-gateway,INFO,trace-0030,trace-0030-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:10:01.045000+00:00,user-service,ERROR,trace-0015,trace-0015-s3,trace-0015-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:27:20.055000+00:00,api-gateway,INFO,trace-0041,trace-0041-s3,trace-0041-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:24:00.230000+00:00,order-service,ERROR,trace-0126,trace-0126-s3,trace-0126-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:27:20.042000+00:00,order-service,INFO,trace-0131,trace-0131-s2,trace-0131-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:01:20.034000+00:00,payment-service,INFO,trace-0002,trace-0002-s2,trace-0002-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:20:00.220000+00:00,order-service,ERROR,trace-0120,trace-0120-s2,trace-0120-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:31:20.007000+00:00,api-gateway,INFO,trace-0047,trace-0047-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:29:23.060000+00:00,order-service,ERROR,trace-0134,trace-0134-s4,trace-0134-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:25:23.040000+00:00,payment-service,ERROR,trace-0128,trace-0128-s3,trace-0128-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:26:01.070000+00:00,api-gateway,ERROR,trace-0129,trace-0129-s4,trace-0129-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:06:40.011000+00:00,api-gateway,INFO,trace-0100,trace-0100-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:16:00.012000+00:00,api-gateway,INFO,trace-0114,trace-0114-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:50:40.095000+00:00,api-gateway,ERROR,trace-0076,trace-0076-s4,trace-0076-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:21:23.040000+00:00,payment-service,ERROR,trace-0032,trace-0032-s3,trace-0032-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:59:20.055000+00:00,api-gateway,INFO,trace-0089,trace-0089-s3,trace-0089-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:02:40.065000+00:00,user-service,ERROR,trace-0094,trace-0094-s2,trace-0094-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:48:00.018000+00:00,order-service,INFO,trace-0072,trace-0072-s1,trace-0072-s0,create_order,Creating order,18
+2026-11-10T10:22:40.025000+00:00,order-service,INFO,trace-0124,trace-0124-s1,trace-0124-s0,load_order,Loading order with user profile,25
+2026-11-10T10:16:40.014000+00:00,auth-service,INFO,trace-0115,trace-0115-s1,trace-0115-s0,validate_token,Validating access token,14
+2026-11-10T10:38:40.011000+00:00,api-gateway,INFO,trace-0148,trace-0148-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:58:40.011000+00:00,api-gateway,INFO,trace-0178,trace-0178-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:48:40.019000+00:00,auth-service,WARN,trace-0163,trace-0163-s2,trace-0163-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:28:40.019000+00:00,auth-service,WARN,trace-0133,trace-0133-s2,trace-0133-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:00:00.012000+00:00,api-gateway,INFO,trace-0000,trace-0000-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:41:20.010000+00:00,api-gateway,INFO,trace-0062,trace-0062-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:21:23.040000+00:00,payment-service,ERROR,trace-0122,trace-0122-s3,trace-0122-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:08:00.245000+00:00,api-gateway,ERROR,trace-0012,trace-0012-s4,trace-0012-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:55:20.016000+00:00,auth-service,INFO,trace-0173,trace-0173-s1,trace-0173-s0,token_valid,Access token validated,16
+2026-11-10T10:51:20.016000+00:00,auth-service,INFO,trace-0167,trace-0167-s1,trace-0167-s0,token_valid,Access token validated,16
+2026-11-10T10:44:00.245000+00:00,api-gateway,ERROR,trace-0156,trace-0156-s4,trace-0156-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:26:40.065000+00:00,user-service,ERROR,trace-0040,trace-0040-s2,trace-0040-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:14:00.045000+00:00,user-service,WARN,trace-0021,trace-0021-s2,trace-0021-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:08:40.008000+00:00,api-gateway,INFO,trace-0103,trace-0103-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:13:23.060000+00:00,order-service,ERROR,trace-0020,trace-0020-s4,trace-0020-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:15:20.016000+00:00,auth-service,INFO,trace-0113,trace-0113-s1,trace-0113-s0,token_valid,Access token validated,16
+2026-11-10T10:46:40.095000+00:00,api-gateway,ERROR,trace-0160,trace-0160-s4,trace-0160-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:25:20.034000+00:00,payment-service,INFO,trace-0128,trace-0128-s2,trace-0128-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:21:23.080000+00:00,api-gateway,ERROR,trace-0032,trace-0032-s5,trace-0032-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:04:00.012000+00:00,api-gateway,INFO,trace-0096,trace-0096-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:25:20.025000+00:00,order-service,INFO,trace-0128,trace-0128-s1,trace-0128-s0,checkout,Initiating payment,25
+2026-11-10T09:20:00.018000+00:00,order-service,INFO,trace-0030,trace-0030-s1,trace-0030-s0,create_order,Creating order,18
+2026-11-10T10:30:40.025000+00:00,order-service,INFO,trace-0136,trace-0136-s1,trace-0136-s0,load_order,Loading order with user profile,25
+2026-11-10T10:04:00.220000+00:00,order-service,ERROR,trace-0096,trace-0096-s2,trace-0096-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:14:40.011000+00:00,api-gateway,INFO,trace-0112,trace-0112-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:20:00.245000+00:00,api-gateway,ERROR,trace-0120,trace-0120-s4,trace-0120-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:14:01.070000+00:00,api-gateway,ERROR,trace-0021,trace-0021-s4,trace-0021-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:21:23.060000+00:00,order-service,ERROR,trace-0122,trace-0122-s4,trace-0122-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:38:40.025000+00:00,order-service,INFO,trace-0148,trace-0148-s1,trace-0148-s0,load_order,Loading order with user profile,25
+2026-11-10T09:18:40.095000+00:00,api-gateway,ERROR,trace-0028,trace-0028-s4,trace-0028-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:56:40.008000+00:00,api-gateway,INFO,trace-0085,trace-0085-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:08:00.220000+00:00,order-service,ERROR,trace-0012,trace-0012-s2,trace-0012-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:54:40.079000+00:00,order-service,ERROR,trace-0082,trace-0082-s3,trace-0082-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:07:20.042000+00:00,order-service,INFO,trace-0101,trace-0101-s2,trace-0101-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:26:40.095000+00:00,api-gateway,ERROR,trace-0040,trace-0040-s4,trace-0040-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:09:20.025000+00:00,order-service,INFO,trace-0014,trace-0014-s1,trace-0014-s0,checkout,Initiating payment,25
+2026-11-10T09:04:00.245000+00:00,api-gateway,ERROR,trace-0006,trace-0006-s4,trace-0006-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:24:00.012000+00:00,api-gateway,INFO,trace-0036,trace-0036-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:42:40.095000+00:00,api-gateway,ERROR,trace-0154,trace-0154-s4,trace-0154-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:22:40.065000+00:00,user-service,ERROR,trace-0124,trace-0124-s2,trace-0124-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:24:00.012000+00:00,api-gateway,INFO,trace-0126,trace-0126-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:38:01.045000+00:00,user-service,ERROR,trace-0147,trace-0147-s3,trace-0147-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:53:20.034000+00:00,payment-service,INFO,trace-0170,trace-0170-s2,trace-0170-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:39:20.042000+00:00,order-service,INFO,trace-0149,trace-0149-s2,trace-0149-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:20:00.220000+00:00,order-service,ERROR,trace-0030,trace-0030-s2,trace-0030-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:28:40.027000+00:00,api-gateway,WARN,trace-0043,trace-0043-s3,trace-0043-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:56:40.019000+00:00,auth-service,WARN,trace-0085,trace-0085-s2,trace-0085-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:04:00.018000+00:00,order-service,INFO,trace-0006,trace-0006-s1,trace-0006-s0,create_order,Creating order,18
+2026-11-10T09:09:23.060000+00:00,order-service,ERROR,trace-0014,trace-0014-s4,trace-0014-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:28:40.019000+00:00,auth-service,WARN,trace-0043,trace-0043-s2,trace-0043-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:42:40.011000+00:00,api-gateway,INFO,trace-0064,trace-0064-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:16:00.012000+00:00,api-gateway,INFO,trace-0024,trace-0024-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:13:20.034000+00:00,payment-service,INFO,trace-0110,trace-0110-s2,trace-0110-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:48:00.018000+00:00,order-service,INFO,trace-0162,trace-0162-s1,trace-0162-s0,create_order,Creating order,18
+2026-11-10T09:59:20.042000+00:00,order-service,INFO,trace-0089,trace-0089-s2,trace-0089-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:24:40.019000+00:00,auth-service,WARN,trace-0127,trace-0127-s2,trace-0127-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:47:20.055000+00:00,api-gateway,INFO,trace-0071,trace-0071-s3,trace-0071-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:51:20.055000+00:00,api-gateway,INFO,trace-0167,trace-0167-s3,trace-0167-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:16:40.019000+00:00,auth-service,WARN,trace-0115,trace-0115-s2,trace-0115-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:34:01.045000+00:00,user-service,ERROR,trace-0051,trace-0051-s3,trace-0051-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:26:40.079000+00:00,order-service,ERROR,trace-0130,trace-0130-s3,trace-0130-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:18:40.065000+00:00,user-service,ERROR,trace-0028,trace-0028-s2,trace-0028-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:44:40.019000+00:00,auth-service,WARN,trace-0067,trace-0067-s2,trace-0067-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:50:01.070000+00:00,api-gateway,ERROR,trace-0075,trace-0075-s4,trace-0075-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:10:00.009000+00:00,api-gateway,INFO,trace-0105,trace-0105-s0,,request_received,GET /users accepted,9
+2026-11-10T10:07:20.055000+00:00,api-gateway,INFO,trace-0101,trace-0101-s3,trace-0101-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:41:20.010000+00:00,api-gateway,INFO,trace-0152,trace-0152-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:58:01.045000+00:00,user-service,ERROR,trace-0087,trace-0087-s3,trace-0087-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:29:20.010000+00:00,api-gateway,INFO,trace-0134,trace-0134-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:56:00.012000+00:00,api-gateway,INFO,trace-0174,trace-0174-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:42:40.065000+00:00,user-service,ERROR,trace-0154,trace-0154-s2,trace-0154-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:43:20.055000+00:00,api-gateway,INFO,trace-0155,trace-0155-s3,trace-0155-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:30:01.045000+00:00,user-service,ERROR,trace-0045,trace-0045-s3,trace-0045-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:19:20.055000+00:00,api-gateway,INFO,trace-0119,trace-0119-s3,trace-0119-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:12:40.014000+00:00,auth-service,INFO,trace-0109,trace-0109-s1,trace-0109-s0,validate_token,Validating access token,14
+2026-11-10T10:36:40.008000+00:00,api-gateway,INFO,trace-0145,trace-0145-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:56:00.245000+00:00,api-gateway,ERROR,trace-0084,trace-0084-s4,trace-0084-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:58:00.020000+00:00,user-service,INFO,trace-0087,trace-0087-s1,trace-0087-s0,get_users,Querying user database,20
+2026-11-10T10:50:01.045000+00:00,user-service,ERROR,trace-0165,trace-0165-s3,trace-0165-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:32:00.230000+00:00,order-service,ERROR,trace-0138,trace-0138-s3,trace-0138-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:08:40.027000+00:00,api-gateway,WARN,trace-0103,trace-0103-s3,trace-0103-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:28:00.018000+00:00,order-service,INFO,trace-0042,trace-0042-s1,trace-0042-s0,create_order,Creating order,18
+2026-11-10T09:01:23.040000+00:00,payment-service,ERROR,trace-0002,trace-0002-s3,trace-0002-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:26:01.070000+00:00,api-gateway,ERROR,trace-0039,trace-0039-s4,trace-0039-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:32:40.027000+00:00,api-gateway,WARN,trace-0049,trace-0049-s3,trace-0049-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:23:20.016000+00:00,auth-service,INFO,trace-0035,trace-0035-s1,trace-0035-s0,token_valid,Access token validated,16
+2026-11-10T10:34:00.045000+00:00,user-service,WARN,trace-0141,trace-0141-s2,trace-0141-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:44:40.014000+00:00,auth-service,INFO,trace-0067,trace-0067-s1,trace-0067-s0,validate_token,Validating access token,14
+2026-11-10T10:36:00.220000+00:00,order-service,ERROR,trace-0144,trace-0144-s2,trace-0144-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:02:01.070000+00:00,api-gateway,ERROR,trace-0003,trace-0003-s4,trace-0003-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:22:00.009000+00:00,api-gateway,INFO,trace-0123,trace-0123-s0,,request_received,GET /users accepted,9
+2026-11-10T09:00:40.027000+00:00,api-gateway,WARN,trace-0001,trace-0001-s3,trace-0001-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:49:23.080000+00:00,api-gateway,ERROR,trace-0074,trace-0074-s5,trace-0074-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:44:00.012000+00:00,api-gateway,INFO,trace-0066,trace-0066-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:38:00.020000+00:00,user-service,INFO,trace-0147,trace-0147-s1,trace-0147-s0,get_users,Querying user database,20
+2026-11-10T09:54:01.045000+00:00,user-service,ERROR,trace-0081,trace-0081-s3,trace-0081-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:42:40.079000+00:00,order-service,ERROR,trace-0154,trace-0154-s3,trace-0154-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:38:01.070000+00:00,api-gateway,ERROR,trace-0147,trace-0147-s4,trace-0147-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:01:20.010000+00:00,api-gateway,INFO,trace-0092,trace-0092-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:58:40.079000+00:00,order-service,ERROR,trace-0088,trace-0088-s3,trace-0088-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:14:40.011000+00:00,api-gateway,INFO,trace-0022,trace-0022-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:08:00.230000+00:00,order-service,ERROR,trace-0012,trace-0012-s3,trace-0012-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:49:20.034000+00:00,payment-service,INFO,trace-0164,trace-0164-s2,trace-0164-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:28:00.018000+00:00,order-service,INFO,trace-0132,trace-0132-s1,trace-0132-s0,create_order,Creating order,18
+2026-11-10T10:33:20.010000+00:00,api-gateway,INFO,trace-0140,trace-0140-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:54:00.020000+00:00,user-service,INFO,trace-0171,trace-0171-s1,trace-0171-s0,get_users,Querying user database,20
+2026-11-10T10:04:00.245000+00:00,api-gateway,ERROR,trace-0096,trace-0096-s4,trace-0096-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:32:40.014000+00:00,auth-service,INFO,trace-0139,trace-0139-s1,trace-0139-s0,validate_token,Validating access token,14
+2026-11-10T09:52:40.008000+00:00,api-gateway,INFO,trace-0079,trace-0079-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:31:20.042000+00:00,order-service,INFO,trace-0137,trace-0137-s2,trace-0137-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:33:20.025000+00:00,order-service,INFO,trace-0140,trace-0140-s1,trace-0140-s0,checkout,Initiating payment,25
+2026-11-10T10:25:23.060000+00:00,order-service,ERROR,trace-0128,trace-0128-s4,trace-0128-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:46:40.011000+00:00,api-gateway,INFO,trace-0070,trace-0070-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:05:20.034000+00:00,payment-service,INFO,trace-0008,trace-0008-s2,trace-0008-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:00:40.014000+00:00,auth-service,INFO,trace-0091,trace-0091-s1,trace-0091-s0,validate_token,Validating access token,14
+2026-11-10T09:54:00.009000+00:00,api-gateway,INFO,trace-0081,trace-0081-s0,,request_received,GET /users accepted,9
+2026-11-10T10:07:20.016000+00:00,auth-service,INFO,trace-0101,trace-0101-s1,trace-0101-s0,token_valid,Access token validated,16
+2026-11-10T10:12:00.012000+00:00,api-gateway,INFO,trace-0108,trace-0108-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:36:00.018000+00:00,order-service,INFO,trace-0144,trace-0144-s1,trace-0144-s0,create_order,Creating order,18
+2026-11-10T10:32:00.018000+00:00,order-service,INFO,trace-0138,trace-0138-s1,trace-0138-s0,create_order,Creating order,18
+2026-11-10T10:18:40.079000+00:00,order-service,ERROR,trace-0118,trace-0118-s3,trace-0118-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:10:01.070000+00:00,api-gateway,ERROR,trace-0105,trace-0105-s4,trace-0105-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:26:40.095000+00:00,api-gateway,ERROR,trace-0130,trace-0130-s4,trace-0130-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:17:23.060000+00:00,order-service,ERROR,trace-0026,trace-0026-s4,trace-0026-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:02:40.095000+00:00,api-gateway,ERROR,trace-0094,trace-0094-s4,trace-0094-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:58:40.065000+00:00,user-service,ERROR,trace-0178,trace-0178-s2,trace-0178-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:10:00.020000+00:00,user-service,INFO,trace-0105,trace-0105-s1,trace-0105-s0,get_users,Querying user database,20
+2026-11-10T10:12:40.027000+00:00,api-gateway,WARN,trace-0109,trace-0109-s3,trace-0109-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:41:23.060000+00:00,order-service,ERROR,trace-0062,trace-0062-s4,trace-0062-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:14:40.095000+00:00,api-gateway,ERROR,trace-0112,trace-0112-s4,trace-0112-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:49:23.040000+00:00,payment-service,ERROR,trace-0164,trace-0164-s3,trace-0164-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:03:20.042000+00:00,order-service,INFO,trace-0095,trace-0095-s2,trace-0095-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:02:40.079000+00:00,order-service,ERROR,trace-0094,trace-0094-s3,trace-0094-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:26:00.009000+00:00,api-gateway,INFO,trace-0129,trace-0129-s0,,request_received,GET /users accepted,9
+2026-11-10T10:20:40.019000+00:00,auth-service,WARN,trace-0121,trace-0121-s2,trace-0121-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:00:40.008000+00:00,api-gateway,INFO,trace-0001,trace-0001-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:10:40.065000+00:00,user-service,ERROR,trace-0106,trace-0106-s2,trace-0106-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:50:40.011000+00:00,api-gateway,INFO,trace-0076,trace-0076-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:36:40.008000+00:00,api-gateway,INFO,trace-0055,trace-0055-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:50:40.079000+00:00,order-service,ERROR,trace-0166,trace-0166-s3,trace-0166-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:06:40.079000+00:00,order-service,ERROR,trace-0010,trace-0010-s3,trace-0010-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:12:40.019000+00:00,auth-service,WARN,trace-0109,trace-0109-s2,trace-0109-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:42:00.009000+00:00,api-gateway,INFO,trace-0063,trace-0063-s0,,request_received,GET /users accepted,9
+2026-11-10T09:49:20.010000+00:00,api-gateway,INFO,trace-0074,trace-0074-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:01:23.060000+00:00,order-service,ERROR,trace-0092,trace-0092-s4,trace-0092-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:07:20.007000+00:00,api-gateway,INFO,trace-0011,trace-0011-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:09:20.034000+00:00,payment-service,INFO,trace-0104,trace-0104-s2,trace-0104-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:18:00.009000+00:00,api-gateway,INFO,trace-0027,trace-0027-s0,,request_received,GET /users accepted,9
+2026-11-10T10:52:00.012000+00:00,api-gateway,INFO,trace-0168,trace-0168-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:48:00.220000+00:00,order-service,ERROR,trace-0162,trace-0162-s2,trace-0162-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:55:20.007000+00:00,api-gateway,INFO,trace-0083,trace-0083-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:50:00.020000+00:00,user-service,INFO,trace-0075,trace-0075-s1,trace-0075-s0,get_users,Querying user database,20
+2026-11-10T10:18:00.020000+00:00,user-service,INFO,trace-0117,trace-0117-s1,trace-0117-s0,get_users,Querying user database,20
+2026-11-10T09:38:01.045000+00:00,user-service,ERROR,trace-0057,trace-0057-s3,trace-0057-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:26:01.045000+00:00,user-service,ERROR,trace-0039,trace-0039-s3,trace-0039-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:12:40.027000+00:00,api-gateway,WARN,trace-0019,trace-0019-s3,trace-0019-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:50:40.025000+00:00,order-service,INFO,trace-0166,trace-0166-s1,trace-0166-s0,load_order,Loading order with user profile,25
+2026-11-10T09:49:23.060000+00:00,order-service,ERROR,trace-0074,trace-0074-s4,trace-0074-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:38:40.095000+00:00,api-gateway,ERROR,trace-0148,trace-0148-s4,trace-0148-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:04:00.230000+00:00,order-service,ERROR,trace-0096,trace-0096-s3,trace-0096-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:09:20.025000+00:00,order-service,INFO,trace-0104,trace-0104-s1,trace-0104-s0,checkout,Initiating payment,25
+2026-11-10T10:57:20.034000+00:00,payment-service,INFO,trace-0176,trace-0176-s2,trace-0176-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:22:40.011000+00:00,api-gateway,INFO,trace-0124,trace-0124-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:10:00.020000+00:00,user-service,INFO,trace-0015,trace-0015-s1,trace-0015-s0,get_users,Querying user database,20
+2026-11-10T10:27:20.007000+00:00,api-gateway,INFO,trace-0131,trace-0131-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:13:23.040000+00:00,payment-service,ERROR,trace-0020,trace-0020-s3,trace-0020-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:48:40.008000+00:00,api-gateway,INFO,trace-0163,trace-0163-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:42:40.079000+00:00,order-service,ERROR,trace-0064,trace-0064-s3,trace-0064-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:33:20.025000+00:00,order-service,INFO,trace-0050,trace-0050-s1,trace-0050-s0,checkout,Initiating payment,25
+2026-11-10T10:18:00.009000+00:00,api-gateway,INFO,trace-0117,trace-0117-s0,,request_received,GET /users accepted,9
+2026-11-10T10:37:20.010000+00:00,api-gateway,INFO,trace-0146,trace-0146-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:17:23.040000+00:00,payment-service,ERROR,trace-0116,trace-0116-s3,trace-0116-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:58:40.025000+00:00,order-service,INFO,trace-0178,trace-0178-s1,trace-0178-s0,load_order,Loading order with user profile,25
+2026-11-10T09:35:20.055000+00:00,api-gateway,INFO,trace-0053,trace-0053-s3,trace-0053-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:05:20.034000+00:00,payment-service,INFO,trace-0098,trace-0098-s2,trace-0098-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:50:01.070000+00:00,api-gateway,ERROR,trace-0165,trace-0165-s4,trace-0165-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:02:00.045000+00:00,user-service,WARN,trace-0093,trace-0093-s2,trace-0093-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:06:40.079000+00:00,order-service,ERROR,trace-0100,trace-0100-s3,trace-0100-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:25:23.080000+00:00,api-gateway,ERROR,trace-0038,trace-0038-s5,trace-0038-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:47:20.055000+00:00,api-gateway,INFO,trace-0161,trace-0161-s3,trace-0161-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:34:00.009000+00:00,api-gateway,INFO,trace-0051,trace-0051-s0,,request_received,GET /users accepted,9
+2026-11-10T09:47:20.016000+00:00,auth-service,INFO,trace-0071,trace-0071-s1,trace-0071-s0,token_valid,Access token validated,16
+2026-11-10T10:44:00.230000+00:00,order-service,ERROR,trace-0156,trace-0156-s3,trace-0156-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:36:00.230000+00:00,order-service,ERROR,trace-0054,trace-0054-s3,trace-0054-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:26:40.079000+00:00,order-service,ERROR,trace-0040,trace-0040-s3,trace-0040-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:46:00.045000+00:00,user-service,WARN,trace-0069,trace-0069-s2,trace-0069-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:11:20.042000+00:00,order-service,INFO,trace-0107,trace-0107-s2,trace-0107-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:12:00.018000+00:00,order-service,INFO,trace-0018,trace-0018-s1,trace-0018-s0,create_order,Creating order,18
+2026-11-10T09:30:00.045000+00:00,user-service,WARN,trace-0045,trace-0045-s2,trace-0045-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:48:00.012000+00:00,api-gateway,INFO,trace-0072,trace-0072-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:12:40.008000+00:00,api-gateway,INFO,trace-0019,trace-0019-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:07:20.042000+00:00,order-service,INFO,trace-0011,trace-0011-s2,trace-0011-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:11:20.007000+00:00,api-gateway,INFO,trace-0107,trace-0107-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:46:40.065000+00:00,user-service,ERROR,trace-0070,trace-0070-s2,trace-0070-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:38:40.079000+00:00,order-service,ERROR,trace-0148,trace-0148-s3,trace-0148-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T10:28:40.014000+00:00,auth-service,INFO,trace-0133,trace-0133-s1,trace-0133-s0,validate_token,Validating access token,14
+2026-11-10T10:05:20.010000+00:00,api-gateway,INFO,trace-0098,trace-0098-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:06:00.045000+00:00,user-service,WARN,trace-0009,trace-0009-s2,trace-0009-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:38:00.009000+00:00,api-gateway,INFO,trace-0147,trace-0147-s0,,request_received,GET /users accepted,9
+2026-11-10T10:18:40.025000+00:00,order-service,INFO,trace-0118,trace-0118-s1,trace-0118-s0,load_order,Loading order with user profile,25
+2026-11-10T10:56:00.230000+00:00,order-service,ERROR,trace-0174,trace-0174-s3,trace-0174-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:48:40.027000+00:00,api-gateway,WARN,trace-0073,trace-0073-s3,trace-0073-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:51:20.042000+00:00,order-service,INFO,trace-0077,trace-0077-s2,trace-0077-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:28:40.014000+00:00,auth-service,INFO,trace-0043,trace-0043-s1,trace-0043-s0,validate_token,Validating access token,14
+2026-11-10T09:06:01.070000+00:00,api-gateway,ERROR,trace-0009,trace-0009-s4,trace-0009-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:26:00.020000+00:00,user-service,INFO,trace-0129,trace-0129-s1,trace-0129-s0,get_users,Querying user database,20
+2026-11-10T09:05:20.025000+00:00,order-service,INFO,trace-0008,trace-0008-s1,trace-0008-s0,checkout,Initiating payment,25
+2026-11-10T09:54:40.065000+00:00,user-service,ERROR,trace-0082,trace-0082-s2,trace-0082-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:40:00.245000+00:00,api-gateway,ERROR,trace-0150,trace-0150-s4,trace-0150-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:38:00.009000+00:00,api-gateway,INFO,trace-0057,trace-0057-s0,,request_received,GET /users accepted,9
+2026-11-10T10:32:40.027000+00:00,api-gateway,WARN,trace-0139,trace-0139-s3,trace-0139-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:12:40.014000+00:00,auth-service,INFO,trace-0019,trace-0019-s1,trace-0019-s0,validate_token,Validating access token,14
+2026-11-10T09:37:20.025000+00:00,order-service,INFO,trace-0056,trace-0056-s1,trace-0056-s0,checkout,Initiating payment,25
+2026-11-10T09:29:20.034000+00:00,payment-service,INFO,trace-0044,trace-0044-s2,trace-0044-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:29:20.025000+00:00,order-service,INFO,trace-0134,trace-0134-s1,trace-0134-s0,checkout,Initiating payment,25
+2026-11-10T10:52:00.230000+00:00,order-service,ERROR,trace-0168,trace-0168-s3,trace-0168-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:25:23.060000+00:00,order-service,ERROR,trace-0038,trace-0038-s4,trace-0038-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:32:00.018000+00:00,order-service,INFO,trace-0048,trace-0048-s1,trace-0048-s0,create_order,Creating order,18
+2026-11-10T10:08:00.245000+00:00,api-gateway,ERROR,trace-0102,trace-0102-s4,trace-0102-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:45:20.025000+00:00,order-service,INFO,trace-0068,trace-0068-s1,trace-0068-s0,checkout,Initiating payment,25
+2026-11-10T09:16:40.027000+00:00,api-gateway,WARN,trace-0025,trace-0025-s3,trace-0025-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:25:20.010000+00:00,api-gateway,INFO,trace-0038,trace-0038-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:20:40.027000+00:00,api-gateway,WARN,trace-0031,trace-0031-s3,trace-0031-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:48:40.027000+00:00,api-gateway,WARN,trace-0163,trace-0163-s3,trace-0163-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:18:40.011000+00:00,api-gateway,INFO,trace-0118,trace-0118-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:34:40.025000+00:00,order-service,INFO,trace-0052,trace-0052-s1,trace-0052-s0,load_order,Loading order with user profile,25
+2026-11-10T09:23:20.055000+00:00,api-gateway,INFO,trace-0035,trace-0035-s3,trace-0035-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:36:00.230000+00:00,order-service,ERROR,trace-0144,trace-0144-s3,trace-0144-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:21:20.034000+00:00,payment-service,INFO,trace-0122,trace-0122-s2,trace-0122-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:03:20.007000+00:00,api-gateway,INFO,trace-0005,trace-0005-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:50:40.011000+00:00,api-gateway,INFO,trace-0166,trace-0166-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:45:23.040000+00:00,payment-service,ERROR,trace-0068,trace-0068-s3,trace-0068-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:05:23.040000+00:00,payment-service,ERROR,trace-0008,trace-0008-s3,trace-0008-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:42:01.045000+00:00,user-service,ERROR,trace-0063,trace-0063-s3,trace-0063-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:15:20.055000+00:00,api-gateway,INFO,trace-0113,trace-0113-s3,trace-0113-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:37:23.060000+00:00,order-service,ERROR,trace-0146,trace-0146-s4,trace-0146-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:33:23.060000+00:00,order-service,ERROR,trace-0140,trace-0140-s4,trace-0140-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:33:20.010000+00:00,api-gateway,INFO,trace-0050,trace-0050-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:02:40.095000+00:00,api-gateway,ERROR,trace-0004,trace-0004-s4,trace-0004-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:34:01.070000+00:00,api-gateway,ERROR,trace-0051,trace-0051-s4,trace-0051-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:38:40.065000+00:00,user-service,ERROR,trace-0058,trace-0058-s2,trace-0058-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:41:23.040000+00:00,payment-service,ERROR,trace-0152,trace-0152-s3,trace-0152-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:26:40.065000+00:00,user-service,ERROR,trace-0130,trace-0130-s2,trace-0130-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:02:00.009000+00:00,api-gateway,INFO,trace-0093,trace-0093-s0,,request_received,GET /users accepted,9
+2026-11-10T10:41:23.080000+00:00,api-gateway,ERROR,trace-0152,trace-0152-s5,trace-0152-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:41:20.025000+00:00,order-service,INFO,trace-0062,trace-0062-s1,trace-0062-s0,checkout,Initiating payment,25
+2026-11-10T09:53:20.010000+00:00,api-gateway,INFO,trace-0080,trace-0080-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:00:00.018000+00:00,order-service,INFO,trace-0000,trace-0000-s1,trace-0000-s0,create_order,Creating order,18
+2026-11-10T10:02:01.045000+00:00,user-service,ERROR,trace-0093,trace-0093-s3,trace-0093-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:22:40.095000+00:00,api-gateway,ERROR,trace-0034,trace-0034-s4,trace-0034-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:44:00.018000+00:00,order-service,INFO,trace-0156,trace-0156-s1,trace-0156-s0,create_order,Creating order,18
+2026-11-10T09:22:40.011000+00:00,api-gateway,INFO,trace-0034,trace-0034-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:50:40.065000+00:00,user-service,ERROR,trace-0076,trace-0076-s2,trace-0076-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:14:00.045000+00:00,user-service,WARN,trace-0111,trace-0111-s2,trace-0111-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:22:40.079000+00:00,order-service,ERROR,trace-0124,trace-0124-s3,trace-0124-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:50:40.025000+00:00,order-service,INFO,trace-0076,trace-0076-s1,trace-0076-s0,load_order,Loading order with user profile,25
+2026-11-10T10:34:01.070000+00:00,api-gateway,ERROR,trace-0141,trace-0141-s4,trace-0141-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:52:00.012000+00:00,api-gateway,INFO,trace-0078,trace-0078-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:08:40.019000+00:00,auth-service,WARN,trace-0103,trace-0103-s2,trace-0103-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:21:20.034000+00:00,payment-service,INFO,trace-0032,trace-0032-s2,trace-0032-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:44:40.008000+00:00,api-gateway,INFO,trace-0067,trace-0067-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:34:40.011000+00:00,api-gateway,INFO,trace-0052,trace-0052-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:18:40.095000+00:00,api-gateway,ERROR,trace-0118,trace-0118-s4,trace-0118-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:31:20.007000+00:00,api-gateway,INFO,trace-0137,trace-0137-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:29:23.040000+00:00,payment-service,ERROR,trace-0044,trace-0044-s3,trace-0044-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:44:00.012000+00:00,api-gateway,INFO,trace-0156,trace-0156-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:58:00.045000+00:00,user-service,WARN,trace-0177,trace-0177-s2,trace-0177-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:04:40.014000+00:00,auth-service,INFO,trace-0097,trace-0097-s1,trace-0097-s0,validate_token,Validating access token,14
+2026-11-10T10:19:20.007000+00:00,api-gateway,INFO,trace-0119,trace-0119-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:47:20.042000+00:00,order-service,INFO,trace-0071,trace-0071-s2,trace-0071-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:29:23.080000+00:00,api-gateway,ERROR,trace-0134,trace-0134-s5,trace-0134-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:11:20.042000+00:00,order-service,INFO,trace-0017,trace-0017-s2,trace-0017-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:31:20.016000+00:00,auth-service,INFO,trace-0047,trace-0047-s1,trace-0047-s0,token_valid,Access token validated,16
+2026-11-10T10:25:23.080000+00:00,api-gateway,ERROR,trace-0128,trace-0128-s5,trace-0128-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:32:00.220000+00:00,order-service,ERROR,trace-0048,trace-0048-s2,trace-0048-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:41:20.025000+00:00,order-service,INFO,trace-0152,trace-0152-s1,trace-0152-s0,checkout,Initiating payment,25
+2026-11-10T09:03:20.055000+00:00,api-gateway,INFO,trace-0005,trace-0005-s3,trace-0005-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:12:00.220000+00:00,order-service,ERROR,trace-0108,trace-0108-s2,trace-0108-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:24:00.018000+00:00,order-service,INFO,trace-0126,trace-0126-s1,trace-0126-s0,create_order,Creating order,18
+2026-11-10T09:02:40.079000+00:00,order-service,ERROR,trace-0004,trace-0004-s3,trace-0004-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:34:40.079000+00:00,order-service,ERROR,trace-0052,trace-0052-s3,trace-0052-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:36:00.012000+00:00,api-gateway,INFO,trace-0054,trace-0054-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:42:40.095000+00:00,api-gateway,ERROR,trace-0064,trace-0064-s4,trace-0064-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:54:40.011000+00:00,api-gateway,INFO,trace-0082,trace-0082-s0,,request_received,GET /orders accepted,11
+2026-11-10T09:09:23.040000+00:00,payment-service,ERROR,trace-0014,trace-0014-s3,trace-0014-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:14:00.009000+00:00,api-gateway,INFO,trace-0111,trace-0111-s0,,request_received,GET /users accepted,9
+2026-11-10T10:46:40.065000+00:00,user-service,ERROR,trace-0160,trace-0160-s2,trace-0160-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:30:40.011000+00:00,api-gateway,INFO,trace-0136,trace-0136-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:19:20.042000+00:00,order-service,INFO,trace-0119,trace-0119-s2,trace-0119-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:22:40.079000+00:00,order-service,ERROR,trace-0034,trace-0034-s3,trace-0034-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:39:20.055000+00:00,api-gateway,INFO,trace-0059,trace-0059-s3,trace-0059-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:04:00.012000+00:00,api-gateway,INFO,trace-0006,trace-0006-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:26:40.025000+00:00,order-service,INFO,trace-0130,trace-0130-s1,trace-0130-s0,load_order,Loading order with user profile,25
+2026-11-10T10:13:23.040000+00:00,payment-service,ERROR,trace-0110,trace-0110-s3,trace-0110-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:57:20.034000+00:00,payment-service,INFO,trace-0086,trace-0086-s2,trace-0086-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:31:20.042000+00:00,order-service,INFO,trace-0047,trace-0047-s2,trace-0047-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:40:40.014000+00:00,auth-service,INFO,trace-0151,trace-0151-s1,trace-0151-s0,validate_token,Validating access token,14
+2026-11-10T09:06:00.009000+00:00,api-gateway,INFO,trace-0009,trace-0009-s0,,request_received,GET /users accepted,9
+2026-11-10T10:16:00.245000+00:00,api-gateway,ERROR,trace-0114,trace-0114-s4,trace-0114-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:51:20.007000+00:00,api-gateway,INFO,trace-0077,trace-0077-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:04:40.027000+00:00,api-gateway,WARN,trace-0007,trace-0007-s3,trace-0007-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:45:23.080000+00:00,api-gateway,ERROR,trace-0068,trace-0068-s5,trace-0068-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:30:01.070000+00:00,api-gateway,ERROR,trace-0045,trace-0045-s4,trace-0045-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:34:00.020000+00:00,user-service,INFO,trace-0051,trace-0051-s1,trace-0051-s0,get_users,Querying user database,20
+2026-11-10T10:22:40.095000+00:00,api-gateway,ERROR,trace-0124,trace-0124-s4,trace-0124-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:14:01.070000+00:00,api-gateway,ERROR,trace-0111,trace-0111-s4,trace-0111-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:33:23.040000+00:00,payment-service,ERROR,trace-0050,trace-0050-s3,trace-0050-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:50:00.009000+00:00,api-gateway,INFO,trace-0165,trace-0165-s0,,request_received,GET /users accepted,9
+2026-11-10T09:46:01.070000+00:00,api-gateway,ERROR,trace-0069,trace-0069-s4,trace-0069-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:56:40.008000+00:00,api-gateway,INFO,trace-0175,trace-0175-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:25:20.025000+00:00,order-service,INFO,trace-0038,trace-0038-s1,trace-0038-s0,checkout,Initiating payment,25
+2026-11-10T09:55:20.016000+00:00,auth-service,INFO,trace-0083,trace-0083-s1,trace-0083-s0,token_valid,Access token validated,16
+2026-11-10T10:23:20.016000+00:00,auth-service,INFO,trace-0125,trace-0125-s1,trace-0125-s0,token_valid,Access token validated,16
+2026-11-10T10:20:40.027000+00:00,api-gateway,WARN,trace-0121,trace-0121-s3,trace-0121-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:10:40.011000+00:00,api-gateway,INFO,trace-0106,trace-0106-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:00:40.019000+00:00,auth-service,WARN,trace-0091,trace-0091-s2,trace-0091-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:14:40.065000+00:00,user-service,ERROR,trace-0022,trace-0022-s2,trace-0022-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:49:20.025000+00:00,order-service,INFO,trace-0164,trace-0164-s1,trace-0164-s0,checkout,Initiating payment,25
+2026-11-10T09:39:20.042000+00:00,order-service,INFO,trace-0059,trace-0059-s2,trace-0059-s0,order_loaded,Order loaded successfully,42
+2026-11-10T09:38:40.095000+00:00,api-gateway,ERROR,trace-0058,trace-0058-s4,trace-0058-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:16:40.027000+00:00,api-gateway,WARN,trace-0115,trace-0115-s3,trace-0115-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:54:00.020000+00:00,user-service,INFO,trace-0081,trace-0081-s1,trace-0081-s0,get_users,Querying user database,20
+2026-11-10T09:25:23.040000+00:00,payment-service,ERROR,trace-0038,trace-0038-s3,trace-0038-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:45:20.010000+00:00,api-gateway,INFO,trace-0158,trace-0158-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:03:20.055000+00:00,api-gateway,INFO,trace-0095,trace-0095-s3,trace-0095-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:30:00.020000+00:00,user-service,INFO,trace-0135,trace-0135-s1,trace-0135-s0,get_users,Querying user database,20
+2026-11-10T09:09:20.034000+00:00,payment-service,INFO,trace-0014,trace-0014-s2,trace-0014-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:35:20.007000+00:00,api-gateway,INFO,trace-0053,trace-0053-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:13:23.060000+00:00,order-service,ERROR,trace-0110,trace-0110-s4,trace-0110-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T09:24:00.018000+00:00,order-service,INFO,trace-0036,trace-0036-s1,trace-0036-s0,create_order,Creating order,18
+2026-11-10T10:04:40.027000+00:00,api-gateway,WARN,trace-0097,trace-0097-s3,trace-0097-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:26:00.009000+00:00,api-gateway,INFO,trace-0039,trace-0039-s0,,request_received,GET /users accepted,9
+2026-11-10T09:14:40.025000+00:00,order-service,INFO,trace-0022,trace-0022-s1,trace-0022-s0,load_order,Loading order with user profile,25
+2026-11-10T09:38:01.070000+00:00,api-gateway,ERROR,trace-0057,trace-0057-s4,trace-0057-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:53:20.025000+00:00,order-service,INFO,trace-0170,trace-0170-s1,trace-0170-s0,checkout,Initiating payment,25
+2026-11-10T10:30:40.095000+00:00,api-gateway,ERROR,trace-0136,trace-0136-s4,trace-0136-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:16:40.014000+00:00,auth-service,INFO,trace-0025,trace-0025-s1,trace-0025-s0,validate_token,Validating access token,14
+2026-11-10T09:02:40.065000+00:00,user-service,ERROR,trace-0004,trace-0004-s2,trace-0004-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:13:23.080000+00:00,api-gateway,ERROR,trace-0110,trace-0110-s5,trace-0110-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:44:00.220000+00:00,order-service,ERROR,trace-0156,trace-0156-s2,trace-0156-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:49:20.025000+00:00,order-service,INFO,trace-0074,trace-0074-s1,trace-0074-s0,checkout,Initiating payment,25
+2026-11-10T09:13:20.034000+00:00,payment-service,INFO,trace-0020,trace-0020-s2,trace-0020-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:28:00.220000+00:00,order-service,ERROR,trace-0132,trace-0132-s2,trace-0132-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:56:00.220000+00:00,order-service,ERROR,trace-0174,trace-0174-s2,trace-0174-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:08:00.018000+00:00,order-service,INFO,trace-0012,trace-0012-s1,trace-0012-s0,create_order,Creating order,18
+2026-11-10T10:00:00.220000+00:00,order-service,ERROR,trace-0090,trace-0090-s2,trace-0090-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:47:20.016000+00:00,auth-service,INFO,trace-0161,trace-0161-s1,trace-0161-s0,token_valid,Access token validated,16
+2026-11-10T09:40:00.012000+00:00,api-gateway,INFO,trace-0060,trace-0060-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:36:00.220000+00:00,order-service,ERROR,trace-0054,trace-0054-s2,trace-0054-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:17:20.010000+00:00,api-gateway,INFO,trace-0116,trace-0116-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:53:20.034000+00:00,payment-service,INFO,trace-0080,trace-0080-s2,trace-0080-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:56:40.027000+00:00,api-gateway,WARN,trace-0175,trace-0175-s3,trace-0175-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:42:40.065000+00:00,user-service,ERROR,trace-0064,trace-0064-s2,trace-0064-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:48:00.245000+00:00,api-gateway,ERROR,trace-0162,trace-0162-s4,trace-0162-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:23:20.042000+00:00,order-service,INFO,trace-0125,trace-0125-s2,trace-0125-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:12:00.018000+00:00,order-service,INFO,trace-0108,trace-0108-s1,trace-0108-s0,create_order,Creating order,18
+2026-11-10T10:28:40.008000+00:00,api-gateway,INFO,trace-0133,trace-0133-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:24:40.019000+00:00,auth-service,WARN,trace-0037,trace-0037-s2,trace-0037-s1,token_expired,JWT expired at validation time,19
+2026-11-10T09:57:20.010000+00:00,api-gateway,INFO,trace-0086,trace-0086-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:36:40.027000+00:00,api-gateway,WARN,trace-0145,trace-0145-s3,trace-0145-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:59:20.007000+00:00,api-gateway,INFO,trace-0179,trace-0179-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:22:01.045000+00:00,user-service,ERROR,trace-0123,trace-0123-s3,trace-0123-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:29:20.025000+00:00,order-service,INFO,trace-0044,trace-0044-s1,trace-0044-s0,checkout,Initiating payment,25
+2026-11-10T10:34:00.009000+00:00,api-gateway,INFO,trace-0141,trace-0141-s0,,request_received,GET /users accepted,9
+2026-11-10T09:00:40.019000+00:00,auth-service,WARN,trace-0001,trace-0001-s2,trace-0001-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:59:20.042000+00:00,order-service,INFO,trace-0179,trace-0179-s2,trace-0179-s0,order_loaded,Order loaded successfully,42
+2026-11-10T10:57:23.060000+00:00,order-service,ERROR,trace-0176,trace-0176-s4,trace-0176-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:48:00.012000+00:00,api-gateway,INFO,trace-0162,trace-0162-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:48:40.014000+00:00,auth-service,INFO,trace-0073,trace-0073-s1,trace-0073-s0,validate_token,Validating access token,14
+2026-11-10T09:34:40.065000+00:00,user-service,ERROR,trace-0052,trace-0052-s2,trace-0052-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T09:02:00.020000+00:00,user-service,INFO,trace-0003,trace-0003-s1,trace-0003-s0,get_users,Querying user database,20
+2026-11-10T09:30:40.065000+00:00,user-service,ERROR,trace-0046,trace-0046-s2,trace-0046-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:34:40.079000+00:00,order-service,ERROR,trace-0142,trace-0142-s3,trace-0142-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:40:00.220000+00:00,order-service,ERROR,trace-0060,trace-0060-s2,trace-0060-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:32:40.008000+00:00,api-gateway,INFO,trace-0139,trace-0139-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:58:00.045000+00:00,user-service,WARN,trace-0087,trace-0087-s2,trace-0087-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:10:01.045000+00:00,user-service,ERROR,trace-0105,trace-0105-s3,trace-0105-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:48:00.245000+00:00,api-gateway,ERROR,trace-0072,trace-0072-s4,trace-0072-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:02:40.025000+00:00,order-service,INFO,trace-0094,trace-0094-s1,trace-0094-s0,load_order,Loading order with user profile,25
+2026-11-10T09:27:20.007000+00:00,api-gateway,INFO,trace-0041,trace-0041-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:09:23.040000+00:00,payment-service,ERROR,trace-0104,trace-0104-s3,trace-0104-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:30:00.009000+00:00,api-gateway,INFO,trace-0045,trace-0045-s0,,request_received,GET /users accepted,9
+2026-11-10T10:31:20.016000+00:00,auth-service,INFO,trace-0137,trace-0137-s1,trace-0137-s0,token_valid,Access token validated,16
+2026-11-10T10:16:40.008000+00:00,api-gateway,INFO,trace-0115,trace-0115-s0,,request_received,GET /profile accepted,8
+2026-11-10T10:43:20.007000+00:00,api-gateway,INFO,trace-0155,trace-0155-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:46:40.025000+00:00,order-service,INFO,trace-0070,trace-0070-s1,trace-0070-s0,load_order,Loading order with user profile,25
+2026-11-10T09:09:20.010000+00:00,api-gateway,INFO,trace-0014,trace-0014-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:40:00.230000+00:00,order-service,ERROR,trace-0150,trace-0150-s3,trace-0150-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:52:00.245000+00:00,api-gateway,ERROR,trace-0168,trace-0168-s4,trace-0168-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:30:00.009000+00:00,api-gateway,INFO,trace-0135,trace-0135-s0,,request_received,GET /users accepted,9
+2026-11-10T09:53:23.040000+00:00,payment-service,ERROR,trace-0080,trace-0080-s3,trace-0080-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:55:20.055000+00:00,api-gateway,INFO,trace-0083,trace-0083-s3,trace-0083-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:04:00.220000+00:00,order-service,ERROR,trace-0006,trace-0006-s2,trace-0006-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:37:23.040000+00:00,payment-service,ERROR,trace-0056,trace-0056-s3,trace-0056-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:17:20.025000+00:00,order-service,INFO,trace-0026,trace-0026-s1,trace-0026-s0,checkout,Initiating payment,25
+2026-11-10T09:20:00.230000+00:00,order-service,ERROR,trace-0030,trace-0030-s3,trace-0030-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:56:40.014000+00:00,auth-service,INFO,trace-0085,trace-0085-s1,trace-0085-s0,validate_token,Validating access token,14
+2026-11-10T10:03:20.007000+00:00,api-gateway,INFO,trace-0095,trace-0095-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:37:23.080000+00:00,api-gateway,ERROR,trace-0056,trace-0056-s5,trace-0056-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T10:25:20.010000+00:00,api-gateway,INFO,trace-0128,trace-0128-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:19:20.007000+00:00,api-gateway,INFO,trace-0029,trace-0029-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:04:40.014000+00:00,auth-service,INFO,trace-0007,trace-0007-s1,trace-0007-s0,validate_token,Validating access token,14
+2026-11-10T09:40:00.230000+00:00,order-service,ERROR,trace-0060,trace-0060-s3,trace-0060-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:34:01.045000+00:00,user-service,ERROR,trace-0141,trace-0141-s3,trace-0141-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:58:00.009000+00:00,api-gateway,INFO,trace-0087,trace-0087-s0,,request_received,GET /users accepted,9
+2026-11-10T10:38:00.045000+00:00,user-service,WARN,trace-0147,trace-0147-s2,trace-0147-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:26:40.025000+00:00,order-service,INFO,trace-0040,trace-0040-s1,trace-0040-s0,load_order,Loading order with user profile,25
+2026-11-10T10:50:00.045000+00:00,user-service,WARN,trace-0165,trace-0165-s2,trace-0165-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:09:20.010000+00:00,api-gateway,INFO,trace-0104,trace-0104-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:06:01.070000+00:00,api-gateway,ERROR,trace-0099,trace-0099-s4,trace-0099-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:26:00.045000+00:00,user-service,WARN,trace-0039,trace-0039-s2,trace-0039-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:50:00.009000+00:00,api-gateway,INFO,trace-0075,trace-0075-s0,,request_received,GET /users accepted,9
+2026-11-10T09:58:01.070000+00:00,api-gateway,ERROR,trace-0087,trace-0087-s4,trace-0087-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:52:00.220000+00:00,order-service,ERROR,trace-0168,trace-0168-s2,trace-0168-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:23:20.007000+00:00,api-gateway,INFO,trace-0035,trace-0035-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:28:00.245000+00:00,api-gateway,ERROR,trace-0042,trace-0042-s4,trace-0042-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:38:40.065000+00:00,user-service,ERROR,trace-0148,trace-0148-s2,trace-0148-s1,connection_reset,Connection reset while serving user profile,65
+2026-11-10T10:40:40.019000+00:00,auth-service,WARN,trace-0151,trace-0151-s2,trace-0151-s1,token_expired,JWT expired at validation time,19
+2026-11-10T10:42:00.020000+00:00,user-service,INFO,trace-0153,trace-0153-s1,trace-0153-s0,get_users,Querying user database,20
+2026-11-10T09:18:01.070000+00:00,api-gateway,ERROR,trace-0027,trace-0027-s4,trace-0027-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:36:40.014000+00:00,auth-service,INFO,trace-0145,trace-0145-s1,trace-0145-s0,validate_token,Validating access token,14
+2026-11-10T10:05:23.040000+00:00,payment-service,ERROR,trace-0098,trace-0098-s3,trace-0098-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:40:40.027000+00:00,api-gateway,WARN,trace-0151,trace-0151-s3,trace-0151-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T10:06:00.009000+00:00,api-gateway,INFO,trace-0099,trace-0099-s0,,request_received,GET /users accepted,9
+2026-11-10T10:08:00.230000+00:00,order-service,ERROR,trace-0102,trace-0102-s3,trace-0102-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:46:01.045000+00:00,user-service,ERROR,trace-0159,trace-0159-s3,trace-0159-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:42:40.025000+00:00,order-service,INFO,trace-0064,trace-0064-s1,trace-0064-s0,load_order,Loading order with user profile,25
+2026-11-10T10:57:23.040000+00:00,payment-service,ERROR,trace-0176,trace-0176-s3,trace-0176-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T09:33:20.034000+00:00,payment-service,INFO,trace-0050,trace-0050-s2,trace-0050-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T10:28:00.230000+00:00,order-service,ERROR,trace-0132,trace-0132-s3,trace-0132-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:00:00.012000+00:00,api-gateway,INFO,trace-0090,trace-0090-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:57:20.010000+00:00,api-gateway,INFO,trace-0176,trace-0176-s0,,request_received,POST /checkout accepted,10
+2026-11-10T09:15:20.007000+00:00,api-gateway,INFO,trace-0023,trace-0023-s0,,request_received,GET /orders accepted,7
+2026-11-10T09:12:00.220000+00:00,order-service,ERROR,trace-0018,trace-0018-s2,trace-0018-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T09:44:00.245000+00:00,api-gateway,ERROR,trace-0066,trace-0066-s4,trace-0066-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T10:29:23.040000+00:00,payment-service,ERROR,trace-0134,trace-0134-s3,trace-0134-s2,provider_timeout,Payment provider did not respond within 3000ms,3040
+2026-11-10T10:35:20.055000+00:00,api-gateway,INFO,trace-0143,trace-0143-s3,trace-0143-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:06:01.045000+00:00,user-service,ERROR,trace-0099,trace-0099-s3,trace-0099-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T09:06:40.095000+00:00,api-gateway,ERROR,trace-0010,trace-0010-s4,trace-0010-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T09:10:40.095000+00:00,api-gateway,ERROR,trace-0016,trace-0016-s4,trace-0016-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:43:20.016000+00:00,auth-service,INFO,trace-0155,trace-0155-s1,trace-0155-s0,token_valid,Access token validated,16
+2026-11-10T09:28:00.012000+00:00,api-gateway,INFO,trace-0042,trace-0042-s0,,request_received,POST /orders accepted,12
+2026-11-10T10:29:20.034000+00:00,payment-service,INFO,trace-0134,trace-0134-s2,trace-0134-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:10:01.070000+00:00,api-gateway,ERROR,trace-0015,trace-0015-s4,trace-0015-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T09:27:20.016000+00:00,auth-service,INFO,trace-0041,trace-0041-s1,trace-0041-s0,token_valid,Access token validated,16
+2026-11-10T10:18:00.045000+00:00,user-service,WARN,trace-0117,trace-0117-s2,trace-0117-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:38:00.045000+00:00,user-service,WARN,trace-0057,trace-0057-s2,trace-0057-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:26:01.045000+00:00,user-service,ERROR,trace-0129,trace-0129-s3,trace-0129-s1,pool_exhausted,Timed out waiting for a database connection from pool,1045
+2026-11-10T10:36:00.012000+00:00,api-gateway,INFO,trace-0144,trace-0144-s0,,request_received,POST /orders accepted,12
+2026-11-10T09:16:00.230000+00:00,order-service,ERROR,trace-0024,trace-0024-s3,trace-0024-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T09:50:40.079000+00:00,order-service,ERROR,trace-0076,trace-0076-s3,trace-0076-s1,dependency_error,Cannot load profile: user-service connection reset,79
+2026-11-10T09:40:00.245000+00:00,api-gateway,ERROR,trace-0060,trace-0060-s4,trace-0060-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:19:20.055000+00:00,api-gateway,INFO,trace-0029,trace-0029-s3,trace-0029-s0,response_200,Returning HTTP 200,55
+2026-11-10T09:34:40.095000+00:00,api-gateway,ERROR,trace-0052,trace-0052-s4,trace-0052-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:07:20.007000+00:00,api-gateway,INFO,trace-0101,trace-0101-s0,,request_received,GET /orders accepted,7
+2026-11-10T10:06:40.025000+00:00,order-service,INFO,trace-0100,trace-0100-s1,trace-0100-s0,load_order,Loading order with user profile,25
+2026-11-10T09:05:23.080000+00:00,api-gateway,ERROR,trace-0008,trace-0008-s5,trace-0008-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:10:00.045000+00:00,user-service,WARN,trace-0015,trace-0015-s2,trace-0015-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T10:46:00.045000+00:00,user-service,WARN,trace-0159,trace-0159-s2,trace-0159-s1,pool_pressure,Connection pool utilization 100 percent,45
+2026-11-10T09:25:20.034000+00:00,payment-service,INFO,trace-0038,trace-0038-s2,trace-0038-s1,provider_request,Sending payment request to external provider,34
+2026-11-10T09:15:20.016000+00:00,auth-service,INFO,trace-0023,trace-0023-s1,trace-0023-s0,token_valid,Access token validated,16
+2026-11-10T10:22:00.020000+00:00,user-service,INFO,trace-0123,trace-0123-s1,trace-0123-s0,get_users,Querying user database,20
+2026-11-10T10:31:20.055000+00:00,api-gateway,INFO,trace-0137,trace-0137-s3,trace-0137-s0,response_200,Returning HTTP 200,55
+2026-11-10T10:52:40.027000+00:00,api-gateway,WARN,trace-0169,trace-0169-s3,trace-0169-s0,unauthorized,Returning HTTP 401 for expired token,27
+2026-11-10T09:44:00.220000+00:00,order-service,ERROR,trace-0066,trace-0066-s2,trace-0066-s1,db_connection_refused,PostgreSQL connection refused: db-orders:5432,220
+2026-11-10T10:04:40.008000+00:00,api-gateway,INFO,trace-0097,trace-0097-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:22:00.009000+00:00,api-gateway,INFO,trace-0033,trace-0033-s0,,request_received,GET /users accepted,9
+2026-11-10T09:48:40.008000+00:00,api-gateway,INFO,trace-0073,trace-0073-s0,,request_received,GET /profile accepted,8
+2026-11-10T09:37:23.060000+00:00,order-service,ERROR,trace-0056,trace-0056-s4,trace-0056-s1,checkout_failed,Checkout failed: payment-service timeout,3060
+2026-11-10T10:02:40.011000+00:00,api-gateway,INFO,trace-0094,trace-0094-s0,,request_received,GET /orders accepted,11
+2026-11-10T10:56:00.018000+00:00,order-service,INFO,trace-0174,trace-0174-s1,trace-0174-s0,create_order,Creating order,18
+2026-11-10T09:46:00.020000+00:00,user-service,INFO,trace-0069,trace-0069-s1,trace-0069-s0,get_users,Querying user database,20
+2026-11-10T09:53:20.025000+00:00,order-service,INFO,trace-0080,trace-0080-s1,trace-0080-s0,checkout,Initiating payment,25
+2026-11-10T09:13:23.080000+00:00,api-gateway,ERROR,trace-0020,trace-0020-s5,trace-0020-s0,upstream_504,Returning HTTP 504,3080
+2026-11-10T09:24:00.230000+00:00,order-service,ERROR,trace-0036,trace-0036-s3,trace-0036-s1,order_failed,Order creation failed due to database connection error,230
+2026-11-10T10:53:20.010000+00:00,api-gateway,INFO,trace-0170,trace-0170-s0,,request_received,POST /checkout accepted,10
+2026-11-10T10:54:01.070000+00:00,api-gateway,ERROR,trace-0171,trace-0171-s4,trace-0171-s0,upstream_503,user-service returned HTTP 503,1070
+2026-11-10T10:16:00.018000+00:00,order-service,INFO,trace-0114,trace-0114-s1,trace-0114-s0,create_order,Creating order,18
+2026-11-10T09:36:00.245000+00:00,api-gateway,ERROR,trace-0054,trace-0054-s4,trace-0054-s0,upstream_503,order-service returned HTTP 503,245
+2026-11-10T09:46:40.095000+00:00,api-gateway,ERROR,trace-0070,trace-0070-s4,trace-0070-s0,upstream_502,Returning HTTP 502,95
+2026-11-10T10:57:20.025000+00:00,order-service,INFO,trace-0176,trace-0176-s1,trace-0176-s0,checkout,Initiating payment,25
+2026-11-10T10:33:23.080000+00:00,api-gateway,ERROR,trace-0140,trace-0140-s5,trace-0140-s0,upstream_504,Returning HTTP 504,3080

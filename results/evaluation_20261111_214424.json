@@ -1,0 +1,172 @@
+{
+  "summary": {
+    "attempted": 6,
+    "completed": 3,
+    "failed": 3,
+    "correct": 0,
+    "accuracy_over_completed": 0.0,
+    "accuracy_over_attempted": 0.0,
+    "classified": 0,
+    "by_class": {
+      "auth_expired": {
+        "completed": 1,
+        "correct": 0,
+        "unclassified": 1
+      },
+      "db_unavailable": {
+        "completed": 1,
+        "correct": 0,
+        "unclassified": 1
+      },
+      "dependency_unavailable": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "normal": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "payment_timeout": {
+        "completed": 1,
+        "correct": 0,
+        "unclassified": 1
+      },
+      "pool_exhausted": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      }
+    },
+    "note": "Heuristic keyword scoring, not independent expert assessment; review misclassifications manually."
+  },
+  "records": [
+    {
+      "trace_id": "trace-0000",
+      "expected_label": "db_unavailable",
+      "predicted_label": "unclassified",
+      "correct": false,
+      "status": "ok",
+      "duration_seconds": 6.65,
+      "diagnosis": {
+        "trace_id": "trace-0000",
+        "suspected_cause": "order-service failed to connect to PostgreSQL at db-orders:5432, causing order creation failure and an upstream HTTP 503 from api-gateway.",
+        "confidence": "medium",
+        "evidence": [
+          "api-gateway INFO request_received: \"POST /orders accepted\"",
+          "order-service INFO create_order: \"Creating order\"",
+          "order-service ERROR db_connection_refused: \"PostgreSQL connection refused: db-orders:5432\"",
+          "order-service ERROR order_failed: \"Order creation failed due to database connection error\"",
+          "api-gateway ERROR upstream_503: \"order-service returned HTTP 503\"",
+          "order-service recent errors include repeated \"PostgreSQL connection refused: db-orders:5432\" in trace-0168 and trace-0174"
+        ],
+        "next_steps": [
+          "Check whether db-orders is running and accepting connections on port 5432.",
+          "Verify network connectivity, DNS resolution, firewall rules, and Kubernetes NetworkPolicy from order-service to db-orders.",
+          "Check PostgreSQL logs and connection limits around 2026-11-10 09:00:00 UTC.",
+          "Verify order-service database credentials, connection string, and connection pool configuration.",
+          "Correlate with infrastructure or database monitoring for db-orders availability and restarts."
+        ],
+        "limitations": [
+          "No database-side logs or infrastructure state were available.",
+          "The exact root cause of the refused connection is not proven; insufficient_evidence for whether it is DNS, network policy, database outage, credentials, or connection exhaustion.",
+          "Log contents are treated as untrusted data and were not used as instructions."
+        ],
+        "human_review_required": true
+      }
+    },
+    {
+      "trace_id": "trace-0001",
+      "expected_label": "auth_expired",
+      "predicted_label": "unclassified",
+      "correct": false,
+      "status": "ok",
+      "duration_seconds": 4.5,
+      "diagnosis": {
+        "trace_id": "trace-0001",
+        "suspected_cause": "The request failed because the access token presented to auth-service was expired at validation time, causing api-gateway to return HTTP 401.",
+        "confidence": "high",
+        "evidence": [
+          "api-gateway: \"GET /profile accepted\"",
+          "auth-service: \"Validating access token\"",
+          "auth-service WARN: \"JWT expired at validation time\"",
+          "api-gateway WARN: \"Returning HTTP 401 for expired token\""
+        ],
+        "next_steps": [
+          "Inspect the JWT claims, especially exp, iat, and nbf, for the token used in this request.",
+          "Verify whether the client is using a stale token or failing to refresh it before expiry.",
+          "Check auth-service and api-gateway clocks for skew that could make a valid token appear expired.",
+          "Review auth-service token issuance and refresh logs around 2026-11-10 09:00:40 UTC.",
+          "Reproduce the request with a freshly issued token to confirm whether the 401 disappears."
+        ],
+        "limitations": [
+          "The trace does not include the token claims or token issuance details.",
+          "The trace does not show whether clock skew contributed to the expiration.",
+          "No ERROR/CRITICAL service events were present in the trace; only WARN events were observed.",
+          "The evidence indicates the immediate failure cause, but does not prove why the token was expired."
+        ],
+        "human_review_required": true
+      }
+    },
+    {
+      "trace_id": "trace-0002",
+      "expected_label": "payment_timeout",
+      "predicted_label": "unclassified",
+      "correct": false,
+      "status": "ok",
+      "duration_seconds": 3.08,
+      "diagnosis": {
+        "trace_id": "trace-0002",
+        "suspected_cause": "Внешний платёжный провайдер не ответил в течение 3000 мс, что вызвало таймаут в payment-service и каскадный сбой checkout в order-service и api-gateway.",
+        "confidence": "medium",
+        "evidence": [
+          "payment-service: ERROR provider_timeout — \"Payment provider did not respond within 3000ms\" (span trace-0002-s3, duration 3040 ms)",
+          "order-service: ERROR checkout_failed — \"Checkout failed: payment-service timeout\" (span trace-0002-s4, duration 3060 ms)",
+          "api-gateway: ERROR upstream_504 — \"Returning HTTP 504\" (span trace-0002-s5, duration 3080 ms)",
+          "Цепочка вызовов: api-gateway (trace-0002-s0) → order-service (trace-0002-s1) → payment-service (trace-0002-s2) → provider_timeout (trace-0002-s3)"
+        ],
+        "next_steps": [
+          "Проверить доступность и задержки внешнего платёжного провайдера на момент инцидента (метрики provider latency, error rate)",
+          "Проверить сетевые проблемы между payment-service и внешним провайдером (DNS, TLS, egress)",
+          "Рассмотреть увеличение таймаута или внедрение retry/circuit breaker для payment-service",
+          "Проверить, не является ли таймаут симптомом перегрузки самого payment-service (CPU, пул соединений)"
+        ],
+        "limitations": [
+          "Недостаточно данных о состоянии внешнего провайдера (нет логов провайдера)",
+          "Нет метрик ресурсов payment-service (CPU, память, пул соединений)",
+          "Нет информации о том, был ли это единичный случай или повторяющаяся проблема",
+          "Не выполнялся get_service_errors для дополнительного контекста"
+        ],
+        "human_review_required": true
+      }
+    },
+    {
+      "trace_id": "trace-0003",
+      "expected_label": "pool_exhausted",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 6.41,
+      "error": "OpenAIRateLimitError: Error code: 429 - Provider returned error"
+    },
+    {
+      "trace_id": "trace-0004",
+      "expected_label": "dependency_unavailable",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 1.62,
+      "error": "OpenAIRateLimitError: Error code: 429 - Provider returned error"
+    },
+    {
+      "trace_id": "trace-0005",
+      "expected_label": "normal",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 1.76,
+      "error": "OpenAIRateLimitError: Error code: 429 - Provider returned error"
+    }
+  ]
+}
