@@ -12,12 +12,65 @@ LABELS = Path(__file__).resolve().parent / 'data' / 'incident_labels.csv'
 OUTPUT = Path(__file__).resolve().parent / 'results'
 
 PATTERNS = {
-    'db_unavailable': ['connection refused', 'failed to connect to postgresql', 'db_connection_refused', 'недоступност', 'отказ подключения', 'не смог подключиться', 'не удалось подключиться'],
-    'auth_expired': ['token expired', 'expired token', 'token presented', 'token was expired', 'was expired at validation', 'истек', 'истёк', 'просрочен', 'auth_expired'],
-    'payment_timeout': ['payment timeout', 'payment-service timeout', 'платёжный провайдер не ответил', 'платежный провайдер не ответил', 'таймаут в payment-service', 'тайм-аут в payment-service', 'тайм-аут платеж', 'таймаут платеж', 'payment_timeout'],
-    'pool_exhausted': ['pool exhausted', 'connection pool', 'пул соединений', 'pool_exhausted', 'истощение пула', 'исчерпание пула'],
-    'dependency_unavailable': ['dependency unavailable', 'upstream unavailable', 'сервис недоступен', 'зависимост', 'dependency_unavailable'],
-    'normal': ['no incident', 'no error', 'no failure', 'ошибок нет', 'ошибки отсутствуют', 'сбоев не обнаружено', 'нормальн', 'штатн', 'insufficient_evidence'],
+    'db_unavailable': [
+        'connection refused',
+        'failed to connect to postgresql',
+        'db_connection_refused',
+        'недоступност',
+        'отказ подключения',
+        'не смог подключиться',
+        'не удалось подключиться',
+    ],
+    'auth_expired': [
+        'token expired',
+        'expired token',
+        'token presented',
+        'token was expired',
+        'was expired at validation',
+        'истек',
+        'истёк',
+        'просрочен',
+        'auth_expired',
+    ],
+    'payment_timeout': [
+        'payment timeout',
+        'payment-service timeout',
+        'платёжный провайдер не ответил',
+        'платежный провайдер не ответил',
+        'таймаут в payment-service',
+        'тайм-аут в payment-service',
+        'тайм-аут платеж',
+        'таймаут платеж',
+        'payment_timeout',
+    ],
+    'pool_exhausted': [
+        'pool exhausted',
+        'connection pool',
+        'пул соединений',
+        'pool_exhausted',
+        'истощение пула',
+        'исчерпание пула',
+    ],
+    'dependency_unavailable': [
+        'dependency unavailable',
+        'upstream unavailable',
+        'сервис недоступен',
+        'зависимост',
+        'dependency_unavailable',
+        'connection_reset',
+        'сброс соединения',
+    ],
+    'normal': [
+        'no incident',
+        'no error',
+        'no failure',
+        'no_failure_detected',
+        'ошибок нет',
+        'ошибки отсутствуют',
+        'сбоев не обнаружено',
+        'нормальн',
+        'штатн',
+    ],
 }
 
 
@@ -80,7 +133,10 @@ def main():
         payload = json.loads(args.rescore.read_text(encoding='utf-8'))
         for record in payload['records']:
             if record['status'] == 'ok':
-                record['predicted_label'] = classify(record['diagnosis']['suspected_cause'])
+                record['predicted_label'] = (
+                        record['diagnosis'].get('category')
+                        or classify(record['diagnosis']['suspected_cause'])
+                )
                 record['correct'] = record['predicted_label'] == record['expected_label']
         payload['summary'] = evaluate(payload['records'])
         output = args.output or args.rescore.with_name(args.rescore.stem + '_rescored.json')
@@ -132,7 +188,7 @@ def main():
             if diagnosis is None:
                 raise last_error
             result = diagnosis.model_dump()
-            predicted = classify(diagnosis.suspected_cause)
+            predicted = diagnosis.category
             record = {'trace_id': trace_id, 'expected_label': case.get('root_cause', case.get('expected_label')),
                       'predicted_label': predicted, 'correct': predicted == case.get('root_cause', case.get('expected_label')),
                       'status': 'ok', 'duration_seconds': round(time.monotonic() - start, 2),

@@ -2,6 +2,7 @@ import json
 import os
 from functools import lru_cache
 from pathlib import Path
+from typing import Literal
 
 import pandas as pd
 from langchain.agents import create_agent
@@ -16,7 +17,20 @@ DATA_PATH = Path(__file__).resolve().parents[1] / 'data' / 'cleaned_logs.csv'
 
 class Diagnosis(BaseModel):
     trace_id: str
-    suspected_cause: str = Field(description='Possible root cause, or insufficient_evidence')
+
+    category: Literal[
+        'db_unavailable',
+        'auth_expired',
+        'payment_timeout',
+        'pool_exhausted',
+        'dependency_unavailable',
+        'normal',
+        'insufficient_evidence',
+    ]
+
+    suspected_cause: str = Field(
+        description='Possible root cause, or insufficient_evidence'
+    )
     confidence: str = Field(description='low, medium, or high')
     evidence: list[str]
     next_steps: list[str]
@@ -29,10 +43,12 @@ def _logs():
 
 @tool
 def get_trace(trace_id: str) -> str:
+    """Retrieve log events associated with a trace ID."""
     return json.dumps(summarize_incident(_logs(), trace_id), ensure_ascii=False)
 
 @tool
 def get_service_errors(service: str, trace_id: str, limit: int = 8, window_minutes: int = 5) -> str:
+    """Retrieve errors from a service near the investigated trace's timestamps."""
     if not service or len(service) > 80:
         return 'Invalid service name'
     if not trace_id or len(trace_id) > 100:
@@ -63,9 +79,26 @@ SYSTEM = '''Ты помощник разработчика по диагност
 Ошибки из других trace — лишь контекст, а не доказательство причинной связи.
 Не объявляй сбой пула соединений причиной connection_reset без событий об этом в исследуемом trace или других прямых доказательств.
 Не путай симптом и первопричину; при нехватке данных укажи insufficient_evidence.
-Ответь ТОЛЬКО JSON-объектом с полями:
-trace_id, suspected_cause, confidence (low/medium/high), evidence (список),
-next_steps (список), limitations (список), human_review_required (true).
+Ответь ТОЛЬКО JSON-объектом со следующими полями:
+- trace_id: идентификатор исследуемого запроса;
+- category: одна из категорий:
+  db_unavailable, auth_expired, payment_timeout,
+  pool_exhausted, dependency_unavailable, normal,
+  insufficient_evidence;
+- suspected_cause: текстовое объяснение причины;
+- confidence: low, medium или high;
+- evidence: список конкретных событий из логов;
+- next_steps: список рекомендуемых действий;
+- limitations: список ограничений диагностики;
+- human_review_required: true.
+
+Поле category обязательно.
+Если запрос завершился успешно и признаков сбоя нет, используй category="normal".
+Если сбой подтверждён, но данных недостаточно для определения его категории,
+используй category="insufficient_evidence".
+Выбирай категорию только на основании событий исследуемого trace.
+Не используй ошибки из других trace как доказательство причины.
+Не добавляй поля, которых нет в указанной схеме.
 Приводи конкретные сообщения логов в evidence. Не утверждай, что гипотеза доказана.'''
 
 def build_agent():

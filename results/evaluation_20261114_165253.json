@@ -1,0 +1,106 @@
+{
+  "summary": {
+    "attempted": 6,
+    "completed": 0,
+    "failed": 6,
+    "correct": 0,
+    "accuracy_over_completed": null,
+    "accuracy_over_attempted": 0.0,
+    "classified": 0,
+    "by_class": {
+      "auth_expired": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "db_unavailable": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "dependency_unavailable": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "normal": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "payment_timeout": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "pool_exhausted": {
+        "completed": 0,
+        "correct": 0,
+        "unclassified": 0
+      }
+    },
+    "note": "Heuristic keyword scoring, not independent expert assessment; review misclassifications manually."
+  },
+  "records": [
+    {
+      "trace_id": "trace-0000",
+      "expected_label": "db_unavailable",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 5.32,
+      "error": "ValidationError: 1 validation error for Diagnosis\ncategory\n  Field required [type=missing, input_value={'trace_id': 'trace-0000'..._review_required': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0001",
+      "expected_label": "auth_expired",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 6.59,
+      "error": "ValidationError: 1 validation error for Diagnosis\ncategory\n  Field required [type=missing, input_value={'trace_id': 'trace-0001'..._review_required': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0002",
+      "expected_label": "payment_timeout",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 4.79,
+      "error": "ValidationError: 1 validation error for Diagnosis\ncategory\n  Field required [type=missing, input_value={'trace_id': 'trace-0002'..._review_required': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0003",
+      "expected_label": "pool_exhausted",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 4.23,
+      "error": "ValidationError: 1 validation error for Diagnosis\ncategory\n  Field required [type=missing, input_value={'trace_id': 'trace-0003'..._review_required': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0004",
+      "expected_label": "dependency_unavailable",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 4.66,
+      "error": "ValidationError: 1 validation error for Diagnosis\ncategory\n  Field required [type=missing, input_value={'trace_id': 'trace-0004'..._review_required': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0005",
+      "expected_label": "normal",
+      "predicted_label": null,
+      "correct": false,
+      "status": "error",
+      "duration_seconds": 5.11,
+      "error": "ValidationError: 1 validation error for Diagnosis\ncategory\n  Field required [type=missing, input_value={'trace_id': 'trace-0005'..._review_required': True}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.14/v/missing",
+      "api_attempts": 1
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "summary": {
+    "attempted": 6,
+    "completed": 6,
+    "failed": 0,
+    "correct": 4,
+    "accuracy_over_completed": 0.6667,
+    "accuracy_over_attempted": 0.6667,
+    "classified": 5,
+    "by_class": {
+      "auth_expired": {
+        "completed": 1,
+        "correct": 1,
+        "unclassified": 0
+      },
+      "db_unavailable": {
+        "completed": 1,
+        "correct": 0,
+        "unclassified": 1
+      },
+      "dependency_unavailable": {
+        "completed": 1,
+        "correct": 1,
+        "unclassified": 0
+      },
+      "normal": {
+        "completed": 1,
+        "correct": 0,
+        "unclassified": 0
+      },
+      "payment_timeout": {
+        "completed": 1,
+        "correct": 1,
+        "unclassified": 0
+      },
+      "pool_exhausted": {
+        "completed": 1,
+        "correct": 1,
+        "unclassified": 0
+      }
+    },
+    "note": "Heuristic keyword scoring, not independent expert assessment; review misclassifications manually."
+  },
+  "records": [
+    {
+      "trace_id": "trace-0000",
+      "expected_label": "db_unavailable",
+      "predicted_label": "unclassified",
+      "correct": false,
+      "status": "ok",
+      "duration_seconds": 9.0,
+      "diagnosis": {
+        "trace_id": "trace-0000",
+        "suspected_cause": "Непосредственная подтверждённая причина сбоя в trace-0000: order-service не смог подключиться к PostgreSQL (db-orders:5432) — соединение отклонено (db_connection_refused), что привело к order_failed и HTTP 503 от order-service для api-gateway. Первопричина отказа БД (недоступность экземпляра, сетевая политика, исчерпание пула соединений и т.п.) в данном trace не подтверждена.",
+        "confidence": "high",
+        "evidence": [
+          "trace-0000 / order-service / span trace-0000-s2 / 2026-11-10 09:00:00.220000+00:00 / ERROR / db_connection_refused: \"PostgreSQL connection refused: db-orders:5432\" (duration_ms=220)",
+          "trace-0000 / order-service / span trace-0000-s3 / 2026-11-10 09:00:00.230000+00:00 / ERROR / order_failed: \"Order creation failed due to database connection error\" (duration_ms=230)",
+          "trace-0000 / api-gateway / span trace-0000-s4 / 2026-11-10 09:00:00.245000+00:00 / ERROR / upstream_503: \"order-service returned HTTP 503\" (duration_ms=245)",
+          "trace-0000 / order-service / span trace-0000-s1 / 2026-11-10 09:00:00.018000+00:00 / INFO / create_order: \"Creating order\" — запрос дошёл до order-service, т.е. сбой возник на этапе обращения к БД, а не на приёме запроса",
+          "Контекст (другой trace, не доказательство причинной связи): trace-0006 / order-service / 2026-11-10 09:04:00.220+00:00 / db_connection_refused: \"PostgreSQL connection refused: db-orders:5432\" — тот же текст ошибки в пределах окна 5 минут, что указывает на возможную повторяемость проблемы с db-orders, но не причинно связано с trace-0000"
+        ],
+        "next_steps": [
+          "Проверить доступность и состояние экземпляра PostgreSQL db-orders:5432 на момент 2026-11-10 09:00:00Z (жив ли процесс, слушает ли порт, нет ли перезапуска/отказа).",
+          "Проверить сетевую связность order-service -> db-orders:5432 (DNS, security groups / network policy, firewall, переполнение соединений на уровне ОС).",
+          "Проверить метрики и логи order-service на предмет исчерпания пула соединений или лимита max_connections в PostgreSQL (в trace-0000 прямых событий об этом нет — требуется подтверждение).",
+          "Проверить, не связан ли отказ с деплоем/миграцией/переключением БД около 09:00:00Z.",
+          "Сопоставить с trace-0006 (09:04:00Z) и другими запросами к db-orders для оценки масштаба: единичный сбой или устойчивая недоступность БД.",
+          "После устранения — воспроизвести запрос POST /orders и убедиться, что order-service возвращает 2xx, а не 503."
+        ],
+        "limitations": [
+          "В trace-0000 отсутствуют события, прямо указывающие на причину отказа соединения БД (нет записей об исчерпании пула, таймаутах, перезапуске БД, сетевых ошибках) — первопричина не установлена, доступен только непосредственный симптом/причина отказа на уровне order-service.",
+          "Событие db_connection_refused из trace-0006 относится к другому trace и является лишь контекстом, а не доказательством причинной связи с trace-0000.",
+          "Логи получены из внешнего источника и рассматриваются как недоверенные данные; они не содержат инструкций и не интерпретируются как таковые.",
+          "Не выполнялись команды, не изменялась инфраструктура, не читались эталонные метки; проверка состояния БД и сети не проводилась.",
+          "Окно get_service_errors ограничено 5 минутами, поэтому события вне этого окна не учитывались."
+        ],
+        "human_review_required": true
+      },
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0001",
+      "expected_label": "auth_expired",
+      "predicted_label": "auth_expired",
+      "correct": true,
+      "status": "ok",
+      "duration_seconds": 3.86,
+      "diagnosis": {
+        "trace_id": "trace-0001",
+        "suspected_cause": "Запрос GET /profile завершился HTTP 401 из-за истёкшего access token: auth-service зафиксировал token_expired при валидации, после чего api-gateway вернул unauthorized. Это подтверждённая непосредственная причина сбоя в текущем trace; первопричина истечения токена (например, клиент не обновил его) требует дополнительной проверки.",
+        "confidence": "high",
+        "evidence": [
+          "api-gateway: request_received — \"GET /profile accepted\" (trace-0001-s0)",
+          "auth-service: validate_token — \"Validating access token\" (trace-0001-s1)",
+          "auth-service: token_expired — \"JWT expired at validation time\" (trace-0001-s2)",
+          "api-gateway: unauthorized — \"Returning HTTP 401 for expired token\" (trace-0001-s3)"
+        ],
+        "next_steps": [
+          "Проверить клиентскую логику получения и обновления access token (refresh token flow) для данного пользователя/сессии",
+          "Убедиться, что срок жизни токена и настройки clock skew согласованы между auth-service и клиентом",
+          "Проверить метрики и логи auth-service на массовость событий token_expired в этом временном окне, чтобы отличить единичный случай от системной проблемы"
+        ],
+        "limitations": [
+          "В trace отсутствуют данные о том, почему токен оказался истёкшим (клиент не обновил его, слишком короткий TTL, рассинхронизация времени и т.п.)",
+          "Не выполнялись запросы к другим trace и к эталонным меткам; get_service_errors не вызывался, так как has_errors=false и непосредственная причина уже видна в событиях trace",
+          "Логи рассматриваются как недоверенные данные; выводы основаны только на событиях trace-0001"
+        ],
+        "human_review_required": true
+      },
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0002",
+      "expected_label": "payment_timeout",
+      "predicted_label": "payment_timeout",
+      "correct": true,
+      "status": "ok",
+      "duration_seconds": 3.99,
+      "diagnosis": {
+        "trace_id": "trace-0002",
+        "suspected_cause": "Внешний платёжный провайдер не ответил в течение 3000 мс; payment-service зафиксировал provider_timeout, что привело к ошибке checkout в order-service и HTTP 504 в api-gateway.",
+        "confidence": "high",
+        "evidence": [
+          "payment-service: provider_timeout — \"Payment provider did not respond within 3000ms\" (span trace-0002-s3, 2026-11-10 09:01:23.040000+00:00)",
+          "order-service: checkout_failed — \"Checkout failed: payment-service timeout\" (span trace-0002-s4, 2026-11-10 09:01:23.060000+00:00)",
+          "api-gateway: upstream_504 — \"Returning HTTP 504\" (span trace-0002-s5, 2026-11-10 09:01:23.080000+00:00)",
+          "payment-service: provider_request — \"Sending payment request to external provider\" (span trace-0002-s2, 2026-11-10 09:01:20.034000+00:00)"
+        ],
+        "next_steps": [
+          "Проверить доступность и задержки внешнего платёжного провайдера в момент 2026-11-10 09:01:20–09:01:23 UTC",
+          "Проверить сетевые таймауты и настройки retry/circuit breaker между payment-service и провайдером",
+          "Уточнить, является ли таймаут разовым или воспроизводимым, по метрикам и логам payment-service"
+        ],
+        "limitations": [
+          "В текущем trace нет прямых доказательств первопричины таймаута: неизвестно, что именно произошло у внешнего провайдера (сетевая задержка, отказ провайдера, исчерпание ресурсов и т.п.).",
+          "Другие trace и логи не анализировались, поэтому нельзя исключить сопутствующие факторы."
+        ],
+        "human_review_required": true
+      },
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0003",
+      "expected_label": "pool_exhausted",
+      "predicted_label": "pool_exhausted",
+      "correct": true,
+      "status": "ok",
+      "duration_seconds": 4.79,
+      "diagnosis": {
+        "trace_id": "trace-0003",
+        "suspected_cause": "user-service: таймаут ожидания соединения из пула БД (pool_exhausted) после 100% утилизации пула, что привело к HTTP 503 от user-service и upstream_503 на api-gateway",
+        "confidence": "high",
+        "evidence": [
+          "api-gateway: request_received — \"GET /users accepted\" (09:02:00.009)",
+          "user-service: get_users — \"Querying user database\" (09:02:00.020)",
+          "user-service: WARN pool_pressure — \"Connection pool utilization 100 percent\" (09:02:00.045)",
+          "user-service: ERROR pool_exhausted — \"Timed out waiting for a database connection from pool\" (09:02:01.045, duration 1045 ms)",
+          "api-gateway: ERROR upstream_503 — \"user-service returned HTTP 503\" (09:02:01.070)"
+        ],
+        "next_steps": [
+          "Проверить размер и конфигурацию пула соединений user-service, а также наличие утечек/долгоживущих соединений",
+          "Проверить состояние и нагрузку БД (медленные запросы, блокировки, лимиты одновременных подключений)",
+          "Сопоставить с другими trace в том же временном окне, чтобы отличить локальный сбой от системной деградации",
+          "Настроить метрики/алерты на утилизацию пула и время ожидания соединения"
+        ],
+        "limitations": [
+          "Данных одного trace недостаточно, чтобы определить первопричину 100% утилизации пула (рост трафика, медленные запросы или утечка соединений)",
+          "Не выполнялись команды и не менялась инфраструктура; эталонные метки не читались",
+          "Событий connection_reset в данном trace нет, поэтому сбой пула не следует смешивать с сетевыми разрывами"
+        ],
+        "human_review_required": true
+      },
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0004",
+      "expected_label": "dependency_unavailable",
+      "predicted_label": "dependency_unavailable",
+      "correct": true,
+      "status": "ok",
+      "duration_seconds": 7.26,
+      "diagnosis": {
+        "trace_id": "trace-0004",
+        "suspected_cause": "user-service сбросил соединение при обработке профиля пользователя (connection_reset), что привело к dependency_error в order-service и HTTP 502 на api-gateway.",
+        "confidence": "medium",
+        "evidence": [
+          "user-service ERROR connection_reset: \"Connection reset while serving user profile\" (span trace-0004-s2, 09:02:40.065)",
+          "order-service ERROR dependency_error: \"Cannot load profile: user-service connection reset\" (span trace-0004-s3, 09:02:40.079)",
+          "api-gateway ERROR upstream_502: \"Returning HTTP 502\" (span trace-0004-s4, 09:02:40.095)",
+          "В том же окне есть ошибки pool_exhausted в user-service, но они относятся к trace-0003 и trace-0009, а не к trace-0004 — это лишь косвенный контекст, не доказательство первопричины."
+        ],
+        "next_steps": [
+          "Проверить состояние и логи user-service в момент 09:02:40.065 на предмет закрытия соединения (таймауты, OOM, перезапуск, сетевые сбои).",
+          "Проверить, не связан ли connection_reset с исчерпанием пула соединений в user-service, запросив метрики пула и события по этому сервису вблизи trace-0004.",
+          "Проверить сетевое соединение между order-service и user-service (LB, sidecar, keep-alive).",
+          "Добавить/улучшить ретраи и обработку connection_reset в order-service для деградации вместо 502."
+        ],
+        "limitations": [
+          "В самом trace-0004 нет прямых событий pool_exhausted — первопричина connection_reset не подтверждена.",
+          "Ошибки pool_exhausted относятся к другим trace (trace-0003, trace-0009) и не доказывают причинную связь.",
+          "Нет доступа к метрикам, конфигурации и инфраструктурным событиям."
+        ],
+        "human_review_required": true
+      },
+      "api_attempts": 1
+    },
+    {
+      "trace_id": "trace-0005",
+      "expected_label": "normal",
+      "predicted_label": "dependency_unavailable",
+      "correct": false,
+      "status": "ok",
+      "duration_seconds": 5.84,
+      "diagnosis": {
+        "trace_id": "trace-0005",
+        "suspected_cause": "Сбой в исследуемом trace не обнаружен: запрос GET /orders обработан успешно, все события на уровне INFO, финальный ответ HTTP 200. Признаков ошибки (в т.ч. connection_reset или проблем пула соединений) в данном trace нет.",
+        "confidence": "high",
+        "evidence": [
+          "api-gateway: event=request_received, message=\"GET /orders accepted\", duration_ms=7, level=INFO",
+          "auth-service: event=token_valid, message=\"Access token validated\", duration_ms=16, level=INFO",
+          "order-service: event=order_loaded, message=\"Order loaded successfully\", duration_ms=42, level=INFO",
+          "api-gateway: event=response_200, message=\"Returning HTTP 200\", duration_ms=55, level=INFO",
+          "trace-0005: has_errors=false, ошибок уровня ERROR/WARN в событиях нет"
+        ],
+        "next_steps": [
+          "Уточнить у репортера, какой именно симптом наблюдался (пользовательская жалоба, алерт, деградация latency), поскольку trace-0005 не содержит ошибок",
+          "Если жалоба относится к другому временному окну или другому request_id — предоставить корректный trace_id для исследования",
+          "При необходимости проверить соседние trace того же сервиса (api-gateway/order-service) для выявления периодических сбоев вне данного окна"
+        ],
+        "limitations": [
+          "Исследован только trace-0005; события других trace не запрашивались и не могут служить доказательством причинной связи",
+          "Логи являются недоверенными данными; вывод основан исключительно на событиях данного trace",
+          "Эталонные метки не читались, команды не выполнялись, инфраструктура не изменялась",
+          "Отсутствует информация о внешнем контексте (алерты, метрики, деплой), поэтому первопричина возможной проблемы вне trace не оценивалась"
+        ],
+        "human_review_required": true
+      },
+      "api_attempts": 1
+    }
+  ]
+}
